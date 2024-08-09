@@ -1,0 +1,26 @@
+.headingCtr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+    width: 100%;
+    height:var(--header-height);
+}
+.backBtn{
+    flex:1;
+    margin: auto;
+    text-align: start;
+
+
+
+}
+.screenTitle{
+    flex:1;
+    text-align: center;
+    margin: auto;
+}
+.refreshBtn{
+    flex:1;
+    text-align: end;
+    margin: auto;
+}

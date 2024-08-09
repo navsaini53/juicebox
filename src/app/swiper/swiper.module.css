@@ -1,0 +1,18 @@
+.main {
+  /* display: flex;
+  flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  
+  min-height: 100vh;
+}
+.swiperSection{
+ 
+  /* height: calc(100vh - 240px);  */
+
+  height: calc(100vh - (2 * var(--header-height))  - (2 * var(--body-padding)));
+
+  
+}
+  

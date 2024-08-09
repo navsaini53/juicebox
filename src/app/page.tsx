@@ -1,95 +1,93 @@
+"use client"; // This is a client component 👈🏽
+
+import { useRef } from 'react';
 import Image from "next/image";
+import Head from "next/head";
+import Script from "next/script";
 import styles from "./page.module.css";
+//  import LottieAnimation from './components/lottieAnimation';
+import { ReactLenis, useLenis } from 'lenis/react'
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { useRouter } from 'next/navigation'
+import HeaderComp from "../../components/header/header";
+import MyButton from "../../components/button/button";
+
+gsap.registerPlugin(useGSAP);
 
 export default function Home() {
+
+  const router = useRouter()
+
+  // const lenis = useLenis(({ scroll }) => {
+  //   // called every scroll
+  //   console.log("jsdj")
+  //   gsap.to('.Hiname', { x: 180 });
+  // })
+
+  const container = useRef();
+
+  // useGSAP(
+  //   () => {
+  //     gsap.to('.Hiname', { y: -360 }); 
+  //   },
+  //   { scope: container }
+  // ); 
+  const { contextSafe } = useGSAP({ scope: container }); // we can pass in a config object as the 1st parameter to make scoping simple
+
+  const onClickGood = contextSafe(() => {
+    gsap.to('.Hiname', { y: 180 });
+  });
+
+
+  const onBtnClick = () => {
+    router.push("/swiper");
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <ReactLenis root>
+
+      <main className={styles.main} ref={container}>
+        <HeaderComp hideBack={false} />
+
+
+        <div style={{ flex: 1 }}>
+
+
+          <div className={styles.imgContainer}>
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+              src="/img/Vectorpentagon.svg"
+              alt="Hero Image"
+              fill
+              priority={false}
+              style={{
+                transform: 'rotate(180deg)'
+              }}
+              // objectFit='center'
+              // sizes="(max-width: 700px) 70vw, (max-width: 1200px) 50vw"
             />
-          </a>
+          </div>
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+
+
+        <div className={styles.center}>
+          <h2 className={styles.homeDescription}>
+            Compare your thoughts on <span className={styles.gradientText}>
+              technology </span> with current industry opinions
+          </h2>
+
+        </div>
+       
+
+        <MyButton
+          isHomeBtn={true}
+          isInverted={false}
+          title={'Get a reality check'}
+          onBtnClick={onBtnClick}
         />
-      </div>
+      </main>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </ReactLenis>
   );
 }

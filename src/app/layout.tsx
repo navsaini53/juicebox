@@ -1,6 +1,45 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import localFont from 'next/font/local'
+
+// Import Swiper styles
+
 import "./globals.css";
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
+import 'swiper/scss/scrollbar';
+import 'swiper/scss/a11y';
+
+
+const SohneBuch = localFont({
+  src: [
+    {
+      path: './font/Sohne/Sohne-Buch.otf',
+      weight: '400',
+      style: 'normal',
+      
+    }
+  ],
+  variable: "--font-sohne-buch",
+})
+
+const BagossTrial = localFont({
+  src: [
+    {
+      path: './font/Bagoss/BagossTRIALVF.ttf',
+      weight: '400',
+      style: 'normal',
+      
+    }
+  ],
+  variable: "--font-bagoss-trial",
+})
+
+
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +55,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} 
+      ${SohneBuch.variable}
+      ${BagossTrial.variable}
+      `}>{children}</body>
     </html>
   );
 }

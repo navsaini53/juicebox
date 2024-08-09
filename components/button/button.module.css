@@ -1,0 +1,31 @@
+.btnContainer{
+    
+    width: 100%;
+    height: var(--button-height);
+    display : flex;
+    align-items : center;
+  }
+  
+  
+  .defaultBtn{
+  
+
+    background: none;
+    color:var(--text-white);
+    font-family: var(--font-sohne-buch);
+  border: 1px solid var(--text-white);
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 24px 0px;
+  width: 100%;
+  
+  }
+  
+  .homeBtn{
+    background:var(--primary-color) !important; 
+    border:none;
+    /* color:var(--text-white); */
+  }
+  .invertedBtn{
+    background:var(--text-white); 
+  }
