@@ -35,9 +35,11 @@ const SwiperItem: React.FC<SwiperProps> = (props) => {
 
       </div>
 
-      <div className={styles.swipeTxt}>
+        <div className={styles.swipeTxt}>
           {props.swipeDescriptionOne}
-          <span className={styles.swipeGrayTxt}>{props.swipeDescriptionTwo}</span>
+          {
+            props.swipeDescriptionTwo?<span className={styles.swipeGrayTxt}>{props.swipeDescriptionTwo}</span>:null
+          }
         </div>
   
 

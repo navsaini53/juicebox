@@ -1,11 +1,4 @@
-.btnContainer{
-    
-    width: 100%;
-    height: var(--button-height);
-    display : flex;
-    align-items : center;
-  }
-  
+
   
   .defaultBtn{
   

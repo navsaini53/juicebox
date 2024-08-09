@@ -2,61 +2,44 @@
 
 import { useRef } from 'react';
 import Image from "next/image";
-import Head from "next/head";
-import Script from "next/script";
-import styles from "./page.module.css";
-//  import LottieAnimation from './components/lottieAnimation';
-import { ReactLenis, useLenis } from 'lenis/react'
+import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { useRouter } from 'next/navigation'
+import { ReactLenis } from 'lenis/react';
 import HeaderComp from "../../components/header/header";
 import MyButton from "../../components/button/button";
+import styles from "./page.module.css";
 
+// Register the GSAP plugin
 gsap.registerPlugin(useGSAP);
 
 export default function Home() {
+  const router = useRouter();
 
-  const router = useRouter()
+  // Declare a ref with a correct type
+  const container = useRef<HTMLDivElement>(null);
 
-  // const lenis = useLenis(({ scroll }) => {
-  //   // called every scroll
-  //   console.log("jsdj")
-  //   gsap.to('.Hiname', { x: 180 });
-  // })
-
-  const container = useRef();
-
-  // useGSAP(
-  //   () => {
-  //     gsap.to('.Hiname', { y: -360 }); 
-  //   },
-  //   { scope: container }
-  // ); 
-  const { contextSafe } = useGSAP({ scope: container }); // we can pass in a config object as the 1st parameter to make scoping simple
+  const { contextSafe } = useGSAP({ scope: container.current ?? undefined, });
 
   const onClickGood = contextSafe(() => {
-    gsap.to('.Hiname', { y: 180 });
+    if (container.current) {
+      gsap.to('.Hiname', { y: 180 });
+    }
   });
-
 
   const onBtnClick = () => {
     router.push("/swiper");
-  }
+  };
 
   return (
     <ReactLenis root>
-
       <main className={styles.main} ref={container}>
         <HeaderComp hideBack={false} />
 
-
         <div style={{ flex: 1 }}>
-
-
           <div className={styles.imgContainer}>
             <Image
-              src="/img/Vectorpentagon.svg"
+              src="/img/vectorpentagon.svg"
               alt="Hero Image"
               fill
               priority={false}
@@ -69,16 +52,12 @@ export default function Home() {
           </div>
         </div>
 
-
-
         <div className={styles.center}>
           <h2 className={styles.homeDescription}>
             Compare your thoughts on <span className={styles.gradientText}>
               technology </span> with current industry opinions
           </h2>
-
         </div>
-       
 
         <MyButton
           isHomeBtn={true}
@@ -87,7 +66,6 @@ export default function Home() {
           onBtnClick={onBtnClick}
         />
       </main>
-
     </ReactLenis>
   );
 }

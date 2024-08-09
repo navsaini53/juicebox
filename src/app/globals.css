@@ -130,6 +130,9 @@ a {
   bottom: var(--swiper-pagination-bottom, 30px) !important;
   
 }
+
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

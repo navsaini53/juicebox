@@ -1,0 +1,25 @@
+.main {
+ 
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    
+    min-height: 100vh;
+  }
+  .swiperSection{
+   
+    
+    height: calc(100vh - (2 * var(--header-height))  - (2 * var(--body-padding)));
+    
+  }
+    
+
+  .footerCtr{
+    
+    width: 100%;
+    height: var(--button-height);
+    display : flex;
+    align-items : center;
+  }
+  
+ 

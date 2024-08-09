@@ -1,9 +1,8 @@
 "use client"; // This is a client component 👈🏽
 import {act, useState} from 'react';
 import Head from "next/head";
-import styles from "./swiper.module.css";
+import styles from "../common.module.css";
 
-import { useRouter } from 'next/navigation'
 import {useSwiper, Swiper, SwiperSlide } from 'swiper/react';
 
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -12,9 +11,8 @@ import Header from '../../../components/header/header';
 import MyButton from '../../../components/button/button';
 
 
-export default function swiper() {
+export default function SwiperComp() {
 
-  const router = useRouter()
 
   const [slideRef, setSlide] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);

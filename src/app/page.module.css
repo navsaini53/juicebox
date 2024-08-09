@@ -30,7 +30,6 @@
 
 }
 
-
 .homeDescription{
   text-align: center;
   font-size: 28px;
@@ -38,8 +37,6 @@
   font-family: var(--font-bagoss-trial);
 
 }
-
-
 
 
 
@@ -54,6 +51,8 @@
 .logo {
   transform: rotate(180deg);
 }
+
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -71,6 +70,9 @@
     transform: none;
   }
 }
+
+
+
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
