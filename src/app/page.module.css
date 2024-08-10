@@ -9,17 +9,17 @@
 }
 .heading{
   padding: 20px 10px;
-
 }
 
 
 
 .center {
    flex: 1;
-   flex-direction: column;
-  display: flex; /* Make parent a flex-container */
-  justify-content: center; /* Centers child horizontally */
-  align-items: center; /* Centers child vertically */
+  flex-direction: column;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  /* border: 1px solid yellow; */
 }
 
 .imgContainer{
@@ -48,36 +48,13 @@
   background-clip: text;
 }
 
-.logo {
+/* .logo {
   transform: rotate(180deg);
-}
+} */
 
-ul.heroUl{
-  list-style: none;
-  position: absolute;
- 
-  left: 0;
-  right: 0;
- 
-    
-   
-}
-
-.heroUl  li{
-  padding: 20px;
-  color: var(--text-white);
-  font-size: 12px;
-}
-
-.heroUl  li:nth-child(odd){
- width: 80%;
-}
-.heroUl  li:nth-child(even){
- text-align: end;
-}
 
 /* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
+/* @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
@@ -92,7 +69,7 @@ ul.heroUl{
   .card:hover span {
     transform: none;
   }
-}
+} */
 
 
 
@@ -106,7 +83,7 @@ ul.heroUl{
   .imgContainer{
     position: relative;
     width: 80vw;
-
+    height:50vh;
   
   }
 
@@ -118,25 +95,16 @@ ul.heroUl{
   .imgContainer{
     position: relative;
     width: 70vw;
+    height:40vh;
 
   
   }
 
-  ul.heroUl{
-    list-style: none;
-    position: absolute;
-   
-    left: -20%;
-    right: -20%;
-   
-      
-     
-  }
+
 
  
  
 }
-
 
 
 @media (prefers-color-scheme: dark) {
@@ -157,3 +125,5 @@ ul.heroUl{
     transform: rotate(0deg);
   }
 }
+
+

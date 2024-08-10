@@ -1,35 +1,32 @@
 "use client"; // This is a client component 👈🏽
-import {act, useState} from 'react';
+import {useState} from 'react';
 import Head from "next/head";
-import styles from "../common.module.css";
-
-import {useSwiper, Swiper, SwiperSlide } from 'swiper/react';
-
+import { useRouter } from 'next/navigation';
+import {Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import SwipeItem from '../../../components/swiper/swiperItem';
-import Header from '../../../components/header/header';
+import MyHeader from '../../../components/header/header';
 import MyButton from '../../../components/button/button';
-
+import styles from "../common.module.css";
 
 export default function SwiperComp() {
 
-
+  const router=useRouter();
   const [slideRef, setSlide] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  // Function to increment the count
+  
   const hitContinue = () => {
-   
+   if(activeIndex==2){
+    router.push('/contact/name');
+   }
     slideRef.slideNext()
-  };
+  }
 
   return (<>
 
-    <Head>
-      <title>First Post</title>
-    </Head>
     <main className={styles.main}>
-      <Header hideBack={false} />
+      <MyHeader hideBack={false} />
       <div className={styles.swiperSection}>
 
         <Swiper
@@ -67,8 +64,6 @@ export default function SwiperComp() {
               swipeDescriptionTwo={'d a reality check about technology in a few minutes. Deal? Great!'}
             />
           </SwiperSlide>
-
-
         </Swiper>
 
       </div>
@@ -79,8 +74,6 @@ export default function SwiperComp() {
         title={'Continue'}
         onBtnClick={hitContinue}
       />
-
-
 
 
     </main>

@@ -75,11 +75,15 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
     <div className={styles.headingCtr} ref={container}>
       <div className={styles.backBtn}>
 
-        {!hideBack ? <button className={styles.btnCtr} tabIndex={0}>
+        {!hideBack ? <button
+        onClick={()=>{
+          window.history.back();
+        }}
+        className={styles.btnCtr} tabIndex={0}>
 
           <Image
             src="/img/arrowLeft.svg"
-            alt="Back Button"
+            alt="Go back"
             width={20}
             height={20}
             priority={true}
@@ -96,6 +100,7 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
 
         <div id='logo'
+        aria-label='Logo Image'
           tabIndex={0}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
@@ -121,7 +126,7 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
           <Image
             src="/img/refresh.svg"
-            alt="Refresh Icon"
+            alt="Reload Website"
             width={20}
             height={20}
             priority={true}
