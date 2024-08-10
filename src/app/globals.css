@@ -7,11 +7,14 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  --background-color:#0C0D10;
+  /* --background-color:#0C0D10; */
+  --background-color: radial-gradient(94.55% 94.55% at 50% 5.45%, #222737 0%, #0C0D10 100%);
+  ;
+  
   --primary-color:#CDAAFF;
   --text-gray-color: rgba(250, 250, 250, 0.5);
   --text-white:rgba(250, 250, 250, 1);
-  --header-height:100px;
+  --header-height:70px;
   --button-height:100px;
   --body-padding:20px;
 

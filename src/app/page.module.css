@@ -52,6 +52,29 @@
   transform: rotate(180deg);
 }
 
+ul.heroUl{
+  list-style: none;
+  position: absolute;
+ 
+  left: 0;
+  right: 0;
+ 
+    
+   
+}
+
+.heroUl  li{
+  padding: 20px;
+  color: var(--text-white);
+  font-size: 12px;
+}
+
+.heroUl  li:nth-child(odd){
+ width: 80%;
+}
+.heroUl  li:nth-child(even){
+ text-align: end;
+}
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
@@ -84,7 +107,6 @@
     position: relative;
     width: 80vw;
 
-      position: relative;
   
   }
 
@@ -97,10 +119,19 @@
     position: relative;
     width: 70vw;
 
-      position: relative;
   
   }
 
+  ul.heroUl{
+    list-style: none;
+    position: absolute;
+   
+    left: -20%;
+    right: -20%;
+   
+      
+     
+  }
 
  
  
@@ -113,9 +144,9 @@
     filter: invert(1);
   }
 
-  .logo {
+  /* .logo {
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
-  }
+  } */
 }
 
 @keyframes rotate {

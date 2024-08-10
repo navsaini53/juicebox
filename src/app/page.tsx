@@ -1,6 +1,6 @@
 "use client"; // This is a client component 👈🏽
 
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
@@ -9,23 +9,31 @@ import { ReactLenis } from 'lenis/react';
 import HeaderComp from "../../components/header/header";
 import MyButton from "../../components/button/button";
 import styles from "./page.module.css";
+gsap.registerPlugin(useGSAP);
 
 // Register the GSAP plugin
-gsap.registerPlugin(useGSAP);
+// gsap.registerPlugin(useGSAP);
 
 export default function Home() {
   const router = useRouter();
 
   // Declare a ref with a correct type
-  const container = useRef<HTMLDivElement>(null);
+   const container = useRef<HTMLDivElement>(null);
 
-  const { contextSafe } = useGSAP({ scope: container.current ?? undefined, });
+   const { contextSafe } = useGSAP({ scope: container.current ?? undefined, });
 
-  const onClickGood = contextSafe(() => {
-    if (container.current) {
-      gsap.to('.Hiname', { y: 180 });
-    }
-  });
+
+   useGSAP(() => {
+    gsap.from("#heroText li", {y: 1000, stagger: 1});
+}, { scope: container }) // <-- scope
+
+  // const onClickGood = contextSafe(() => {
+  //   if (container.current) {
+  //     gsap.to('.Hiname', { y: 180 });
+  //   }
+  // });
+
+
 
   const onBtnClick = () => {
     router.push("/swiper");
@@ -33,14 +41,20 @@ export default function Home() {
 
   return (
     <ReactLenis root>
-      <main className={styles.main} ref={container}>
+      <main className={styles.main} 
+      ref={container}
+      >
         <HeaderComp hideBack={false} />
+
+
+
+        
 
         <div style={{ flex: 1 }}>
           <div className={styles.imgContainer}>
             <Image
-              src="/img/vectorpentagon.svg"
-              alt="Hero Image"
+              src="/img/homeImg.svg"
+              alt="Home Image"
               fill
               priority={false}
               style={{
@@ -49,7 +63,16 @@ export default function Home() {
               // objectFit='center'
               // sizes="(max-width: 700px) 70vw, (max-width: 1200px) 50vw"
             />
+              <ul  id="heroText" className={styles.heroUl}>
+            <li>WA businesses feel confident about future growth </li>
+            <li>AI cant replace creativity  </li>
+            <li>Sales measure true success  </li>
+            <li>Human connection drives WA business  </li>
+            <li>The primary barrier to digital transformation is financial investment  </li>
+          </ul>
           </div>
+
+        
         </div>
 
         <div className={styles.center}>
