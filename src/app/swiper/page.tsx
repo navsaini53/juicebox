@@ -20,7 +20,6 @@ export default function SwiperComp() {
   // Function to increment the count
   const hitContinue = () => {
    
-    console.log("active",activeIndex);
     slideRef.slideNext()
   };
 
@@ -42,7 +41,6 @@ export default function SwiperComp() {
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           onSwiper={(swiper) => {
-            console.log(swiper)
             setSlide(swiper)
           }}
           onSlideChange={(v) => {

@@ -1,0 +1,18 @@
+.lottieCtr{
+    flex: 1;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.formBody{ 
+    flex: 2;
+    display: flex;
+     flex-direction: column;
+}
+
+.labelCtr{
+    flex: 1;
+    text-align: center;
+}
+
+.errorMsg{ color: red; font-size: 12px; }

@@ -1,64 +1,87 @@
 "use client"; // This is a client component 👈🏽
 
 
+import React from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 import { FormEvent } from 'react';
 import Image from "next/image";
 import styles from "./form.module.css";
 
-interface FormProps {
-  formFields:{
-    name:string,
-    type:string,
-    for:'name'
-  }
-}
+const schema = yup.object().shape({
+  name: yup
+    .string()
+    .required('Name is required')
+    .min(2, 'Name must be at least 2 characters')
+});
 
-const FormLabel: React.FC<FormProps> = ({ formFields }) => {
+// interface FormProps {
+//   formFields:{
+//     name:string,
+//     type:string,
+//     for:'name'
+//   }
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
 
-    return;
-    console.log("event.currentTarget", event.currentTarget)
+// }
 
-    // const formData = new FormData(event.currentTarget)
-    // const response = await fetch('/api/submit', {
-    //   method: 'POST',
-    //   body: formData,
-    // })
 
-    // // Handle response if necessary
-    // const data = await response.json()
-    // // ...
-  }
+type FormData = {
+  name: string;
+
+};
+
+
+const ContactForm: React.FC = () => {
+
+
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    console.log(data);
+    alert('Form submitted successfully!');
+  };
 
 
   return (
-    <form className={styles.formCtr}>
+    <form className={styles.formCtr} onSubmit={handleSubmit(onSubmit)} aria-label="Contact form">
 
       <div className={styles.inputCtr}>
-        <input name={formFields.name}
-        required={true}
-          onChange={(e)=>{
-            console.log(e)
-          }}
-          type={formFields.type} className={styles.inputField} />
-      </div>
-     
-        <button className={styles.btnCtr} >
-        <Image
-            src="/img/arrowUp.svg"
-            alt="Submit Form"
-           width={20}
-           height={20}
-            priority={false}
-            objectFit="center"
-          
-  
-          />
-        </button>
+
+        {errors.name && (
+          <span id="name-error" role="alert">
+            {errors.name.message}
+          </span>
+        )}
         
-       
+        <label htmlFor="name">Name</label>
+        <input
+          id="name"
+          type="text"
+          {...register('name')}
+          aria-invalid={errors.name ? 'true' : 'false'}
+          aria-describedby="name-error"
+          className={styles.inputField} />
+      </div>
+
+      <button className={styles.btnCtr} >
+        <Image
+          src="/img/arrowUp.svg"
+          alt="Submit Form"
+          width={20}
+          height={20}
+          priority={false}
+          objectFit="center"
+
+
+        />
+      </button>
+
+
     </form>
 
 
@@ -66,4 +89,4 @@ const FormLabel: React.FC<FormProps> = ({ formFields }) => {
   );
 }
 
-export default FormLabel;
+export default ContactForm;

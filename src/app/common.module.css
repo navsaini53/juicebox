@@ -1,25 +1,87 @@
 .main {
- 
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    
-    min-height: 100vh;
-  }
-  .swiperSection{
-   
-    
-    height: calc(100vh - (2 * var(--header-height))  - (2 * var(--body-padding)));
-    
-  }
-    
 
-  .footerCtr{
-    
-    width: 100%;
-    height: var(--button-height);
-    display : flex;
-    align-items : center;
-  }
-  
- 
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  min-height: 100vh;
+}
+
+.swiperSection {
+
+
+  height: calc(100vh - (2 * var(--header-height)) - (2 * var(--body-padding)));
+
+}
+
+
+.footerCtr {
+
+  width: 100%;
+  height: var(--button-height);
+  display: flex;
+  align-items: center;
+}
+
+
+
+.inputField {
+  width: 100% !important;
+
+  height: 60px;
+  padding: 0px 12px 0px 12px;
+  gap: 0px;
+  border-radius: 18px;
+  justify-content: space-between;
+  opacity: 0px;
+
+  border: 1px solid var(--text-gray-color);
+  background: var(--background-color);
+  color: var(--text-gray-color);
+  font-size: 16px;
+
+}
+
+.formSection {
+
+
+  height:calc(100vh - ( var(--header-height)) - (2 * var(--body-padding)));
+ display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.inputField:focus {
+  outline: none;
+}
+
+.formCtr {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.inputCtr {
+  flex: 1;
+}
+
+.btnCtr {
+  position: fixed;
+  right: 30px;
+  bottom: 32px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: var(--text-gray-color);
+  border-radius: 50%;
+  display: flex;
+  padding: 10px;
+  border: none;
+}
+
+.formLabel{
+
+  font-size: 19px;
+  text-align: center;
+}

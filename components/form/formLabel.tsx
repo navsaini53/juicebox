@@ -4,15 +4,14 @@
 import styles from "./form.module.css";
 
 interface FormProps {
-  labelText: string;
+  labelText: string,
+  labelFor:string
 }
 
-const FormLabel: React.FC<FormProps> = ({labelText}) => {
+const FormLabel: React.FC<FormProps> = ({labelText,labelFor}) => {
 
   return (
-    <div className={styles.headingCtr}>
-   {labelText}
-    </div>
+    <label htmlFor={labelFor} className={styles.headingCtr}>{labelText}</label>
   );
 }
 

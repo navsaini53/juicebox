@@ -75,18 +75,18 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
     <div className={styles.headingCtr} ref={container}>
       <div className={styles.backBtn}>
 
-        {!hideBack ? <div className={styles.btnCtr}>
+        {!hideBack ? <button className={styles.btnCtr} tabIndex={0}>
 
           <Image
             src="/img/arrowLeft.svg"
             alt="Back Button"
             width={20}
             height={20}
-            priority={false}
+            priority={true}
             objectFit="center"
           />
-        </div>
-        
+        </button>
+
 
 : null}
 
@@ -117,18 +117,18 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
       <div className={styles.refreshBtn} >
 
-        <div className={styles.btnCtr}>
+        <button className={styles.btnCtr} tabIndex={0}>
 
           <Image
             src="/img/refresh.svg"
             alt="Refresh Icon"
             width={20}
             height={20}
-            priority={false}
+            priority={true}
             objectFit="center"
 
           />
-        </div>
+        </button>
 
       </div>
     </div>

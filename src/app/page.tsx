@@ -56,14 +56,14 @@ export default function Home() {
               src="/img/homeImg.svg"
               alt="Home Image"
               fill
-              priority={false}
+              priority={true}
               style={{
                 transform: 'rotate(180deg)'
               }}
               // objectFit='center'
               // sizes="(max-width: 700px) 70vw, (max-width: 1200px) 50vw"
             />
-              <ul  id="heroText" className={styles.heroUl}>
+              <ul  id="heroText" className={styles.heroUl} tabIndex={0}>
             <li>WA businesses feel confident about future growth </li>
             <li>AI cant replace creativity  </li>
             <li>Sales measure true success  </li>
@@ -76,7 +76,7 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
-          <h2 className={styles.homeDescription}>
+          <h2 className={styles.homeDescription} tabIndex={0}>
             Compare your thoughts on <span className={styles.gradientText}>
               technology </span> with current industry opinions
           </h2>

@@ -13,23 +13,13 @@ interface SwiperProps {
 const SwiperItem: React.FC<SwiperProps> = (props) => {
 
   return (<div className={styles.swiperCtr}>
-    {/* <div className={styles.imgSection}>
-    <div className={styles.imgCtr}>
-      <Image
-        src="/img/Vectorpentagon.svg"
-        alt="Vector Logo"
-        layout="fill" objectFit="fill"
-        priority={false}
-      />
-      sdfs
-    </div>
-    </div> */}
+
     <div className={styles.imgCtr}>
         <Image
           src="/img/Vectorpentagon.svg"
           alt="Vector Logo"
           fill
-          priority={false}
+          priority={true}
         />
        
 
