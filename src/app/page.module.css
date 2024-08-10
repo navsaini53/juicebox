@@ -17,18 +17,13 @@
    flex: 1;
   flex-direction: column;
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
+  justify-content: center;
+  /* align-items: center; */
   /* border: 1px solid yellow; */
+  width: 100%;
 }
 
-.imgContainer{
-  position: relative;
-  height: 50vh;
-  width: 80vw;
-    position: relative;
 
-}
 
 .homeDescription{
   text-align: center;
@@ -71,7 +66,13 @@
   }
 } */
 
+.imgContainer{
+  position: relative;
+  height: 50vh;
+  /* width: 90vw; */
+  /* width: 100%; */
 
+}
 
 
 /* Tablet and Smaller Desktop */
@@ -82,8 +83,7 @@
 
   .imgContainer{
     position: relative;
-    width: 80vw;
-    height:50vh;
+    height:40vh;
   
   }
 
@@ -94,7 +94,6 @@
 
   .imgContainer{
     position: relative;
-    width: 70vw;
     height:40vh;
 
   

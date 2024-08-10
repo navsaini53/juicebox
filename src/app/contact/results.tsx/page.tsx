@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import * as yup from 'yup';
 import Header from '../../../../components/header/header';
+import MyButton from '../../../../components/button/button';
 import FormLabel from '../../../../components/form/formLabel';
 import FormInput from '../../../../components/form/formInput';
 import juicebotJson from "../../../../public/animations/Juicebot.json";
@@ -16,9 +17,9 @@ import formStyle from "../form.module.css";
 
 const schema = yup.object().shape({
   email: yup
-    .string()
-    .required('Email is required')
-    .email('Please enter a valid email address'),
+  .string()
+  .required('Email is required')
+  .email('Please enter a valid email address'),
 });
 
 
@@ -28,18 +29,15 @@ type FormData = {
 
 export default function ContactEmailForm() {
 
-  const router = useRouter();
-
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormData> = (data: any) => {
-    if (!data || !data.email) {
+  const onSubmit: SubmitHandler<FormData> = (data:any) => {
+    if(!data ||!data.email){
       return alert("something went wrong")
-    }
-    localStorage.setItem("email", data.email);
-    router.push("/contact/results");
+          }
+          localStorage.setItem("email", data.email);
 
 
   };
@@ -68,7 +66,7 @@ export default function ContactEmailForm() {
 
         <form className={formStyle.formBody} onSubmit={handleSubmit(onSubmit)} aria-label="Contact form">
 
-          <div className={formStyle.labelCtr}>
+          <div className={formStyle.labelCtr }>
             <FormLabel labelText='How should we contact you? Type in your email address.' labelFor="email" />
             {errors.email && (
               <div className={formStyle.errorMsg}><span id="email-error" role="alert">
@@ -81,17 +79,14 @@ export default function ContactEmailForm() {
 
             <div className={commonStyle.inputCtr}>
 
-
-              <FormInput
-
-                id={'email'}
-                placeholder={'Email Addres'}
-                type={'text'}
+              <input
+                id="email"
+                placeholder='Email Address'
+                type="text"
                 {...register('email')}
                 aria-invalid={errors.email ? 'true' : 'false'}
                 aria-describedby="email-error"
-
-              />
+                className={commonStyle.inputField} />
             </div>
 
             <button className={commonStyle.btnCtr} >
@@ -102,6 +97,7 @@ export default function ContactEmailForm() {
                 height={20}
                 priority={false}
                 objectFit="center"
+
 
               />
             </button>

@@ -1,16 +1,15 @@
 "use client"; // This is a client component 👈🏽
-import { useRouter } from 'next/navigation'
-
+import {useRef} from 'react';
 import Lottie from "lottie-react";
+import { useRouter } from 'next/navigation';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import * as yup from 'yup';
 
 import Header from '../../../../components/header/header';
-import MyButton from '../../../../components/button/button';
 import FormLabel from '../../../../components/form/formLabel';
-import FormInput from '../../../../components/form/input';
+import FormInput from '../../../../components/form/formInput';
 import juicebotJson from "../../../../public/animations/Juicebot.json";
 import commonStyle from "../../common.module.css";
 
@@ -31,11 +30,17 @@ type FormData = {
 export default function UserForm() {
 
   const router=useRouter();
+  
+  const nameRef = useRef<HTMLInputElement>(null);
+
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
 
+
+
   const onSubmit: SubmitHandler<FormData> = (data) => {
+
     if(!data ||!data.name){
 return alert("something went wrong")
     }
@@ -77,19 +82,23 @@ return alert("something went wrong")
               </span></div>
             )}
           </div>
+
+          
           <div className={commonStyle.formCtr}>
 
 
             <div className={commonStyle.inputCtr}>
-
-              <input
-                id="name"
-                 placeholder='Name'
-                type="text"
-                {...register('name')}
-                aria-invalid={errors.name ? 'true' : 'false'}
-                aria-describedby="name-error"
-                className={commonStyle.inputField} />
+              <FormInput
+             
+              id={'name'}
+              placeholder={'name'}
+              type={'text'}
+              {...register('name')}
+              aria-invalid={errors.name ? 'true' : 'false'}
+              aria-describedby="name-error"
+      
+              />
+             
             </div>
 
             <button className={commonStyle.btnCtr} >

@@ -30,10 +30,10 @@ ul.heroUl{
       list-style: none;
       position: absolute;
      
-      left: -20%;
-      right: -20%;
+      left: -6%;
+      right: -6%;
      
-      top: 15%;
+      /* top: 10%; */
        
     }
     .heroUl li{

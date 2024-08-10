@@ -1,8 +1,6 @@
 "use client"; // This is a client component 👈🏽
 
-import { useRef } from 'react';
 import Image from "next/image";
-
 import styles from "./swiper.module.css";
 
 interface SwiperProps {
@@ -17,12 +15,11 @@ const SwiperItem: React.FC<SwiperProps> = (props) => {
     <div className={styles.imgCtr}>
         <Image
           src="/img/Vectorpentagon.svg"
-          alt="Vector Logo"
+          alt="Swiper image information"
           fill
           priority={true}
         />
        
-
       </div>
 
         <div className={styles.swipeTxt}>
@@ -32,7 +29,6 @@ const SwiperItem: React.FC<SwiperProps> = (props) => {
           }
         </div>
   
-
 
   </div>
   );

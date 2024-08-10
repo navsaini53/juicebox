@@ -1,6 +1,5 @@
 "use client"; // This is a client component 👈🏽
 import {useState} from 'react';
-import Head from "next/head";
 import { useRouter } from 'next/navigation';
 import {Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -8,6 +7,8 @@ import SwipeItem from '../../../components/swiper/swiperItem';
 import MyHeader from '../../../components/header/header';
 import MyButton from '../../../components/button/button';
 import styles from "../common.module.css";
+
+
 
 export default function SwiperComp() {
 

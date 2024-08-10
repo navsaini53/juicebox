@@ -7,41 +7,35 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import * as yup from 'yup';
 import Header from '../../../../components/header/header';
+import MyButton from '../../../../components/button/button';
 import FormLabel from '../../../../components/form/formLabel';
 import FormInput from '../../../../components/form/formInput';
 import juicebotJson from "../../../../public/animations/Juicebot.json";
-import commonStyle from "../../common.module.css";
+import commonStyle from "../common.module.css";
 
-import formStyle from "../form.module.css";
+import formStyle from "./form.module.css";
 
 const schema = yup.object().shape({
-  email: yup
+  name: yup
     .string()
-    .required('Email is required')
-    .email('Please enter a valid email address'),
+    .required('Name is required')
+    .min(2, 'Name must be at least 2 characters')
 });
 
 
 type FormData = {
-  email: string;
+  name: string;
 };
 
-export default function ContactEmailForm() {
-
-  const router = useRouter();
+export default function UserForm() {
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormData> = (data: any) => {
-    if (!data || !data.email) {
-      return alert("something went wrong")
-    }
-    localStorage.setItem("email", data.email);
-    router.push("/contact/results");
-
-
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    console.log(data);
+    alert('Form submitted successfully!');
   };
 
 
@@ -68,11 +62,11 @@ export default function ContactEmailForm() {
 
         <form className={formStyle.formBody} onSubmit={handleSubmit(onSubmit)} aria-label="Contact form">
 
-          <div className={formStyle.labelCtr}>
-            <FormLabel labelText='How should we contact you? Type in your email address.' labelFor="email" />
-            {errors.email && (
-              <div className={formStyle.errorMsg}><span id="email-error" role="alert">
-                {errors.email.message}
+          <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' labelFor="name" />
+            {errors.name && (
+              <div className={formStyle.errorMsg}><span id="name-error" role="alert">
+                {errors.name.message}
               </span></div>
             )}
           </div>
@@ -81,17 +75,13 @@ export default function ContactEmailForm() {
 
             <div className={commonStyle.inputCtr}>
 
-
-              <FormInput
-
-                id={'email'}
-                placeholder={'Email Addres'}
-                type={'text'}
-                {...register('email')}
-                aria-invalid={errors.email ? 'true' : 'false'}
-                aria-describedby="email-error"
-
-              />
+              <input
+                id="name"
+                type="text"
+                {...register('name')}
+                aria-invalid={errors.name ? 'true' : 'false'}
+                aria-describedby="name-error"
+                className={commonStyle.inputField} />
             </div>
 
             <button className={commonStyle.btnCtr} >
@@ -102,6 +92,7 @@ export default function ContactEmailForm() {
                 height={20}
                 priority={false}
                 objectFit="center"
+
 
               />
             </button>
