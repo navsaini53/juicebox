@@ -15,8 +15,9 @@ const SwiperItem: React.FC<SwiperProps> = (props) => {
     <div className={styles.imgCtr}>
         <Image
           src="/img/Vectorpentagon.svg"
-          alt="Swiper image information"
+          alt="Swiper image "
           fill
+          sizes="(min-width: 700px) 50vw, 80vw"
           priority={true}
         />
        
