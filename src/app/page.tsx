@@ -7,7 +7,6 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ReactLenis, useLenis } from 'lenis/react';
 import HomeAnimatedText from "../../components/home/homeAnimatedText";
-// import LottieAnimation from "../../components/home/lottieAnimation";
 import HeaderComp from "../../components/header/header";
 import LinkButton from "../../components/button/linkButton";
 import styles from "./page.module.css";

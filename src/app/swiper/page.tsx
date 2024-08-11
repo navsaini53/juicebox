@@ -42,7 +42,7 @@ export default function SwiperComp() {
             setActiveIndex(v.activeIndex)
           }}
         >
-          <SwiperSlide>
+          <SwiperSlide >
             <SwipeItem
               swipeDescriptionOne={'Professionals around the world shared how they feel ab'}
               swipeDescriptionTwo={'out technology and I’ve listened. Now it’s your turn.'}

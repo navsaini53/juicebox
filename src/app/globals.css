@@ -135,6 +135,9 @@ a {
 }
 
 
+.swiper-horizontal>.swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal {
+  display: none !important;
+}
 
 @media (prefers-color-scheme: dark) {
   html {
