@@ -9,7 +9,10 @@ export default function CrashPage() {
   return (<>
 
     <main className={commonStyle.main}>
-      <Header hideBack={false} />
+      <Header hideBack={false} onBack={()=>{
+
+      }
+      }/>
      <div style={{textAlign:'center',paddingTop:'20px'}}>
        -- Sorry custom 404 page --
         </div>
