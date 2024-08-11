@@ -68,10 +68,8 @@ export default function UserForm() {
        
        <FormImage/>
 
-
         <form className={formStyle.formBody} onSubmit={handleSubmit(onSubmit)} aria-label="Contact form">
-
-          <div className={formStyle.labelCtr }>
+             <div className={formStyle.labelCtr }>
             <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
             labelFor="name"
             errorId={"name-error"}
