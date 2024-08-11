@@ -50,8 +50,9 @@
 
 .btnCtr {
   position: absolute;
-  right: 30px;
-  bottom: 52px;
+ 
+   bottom: -5px;
+   right:30px;
   width: 36px;
   height: 36px;
   text-align: center;
