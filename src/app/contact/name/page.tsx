@@ -75,12 +75,16 @@ return alert("something went wrong")
         <form className={formStyle.formBody} onSubmit={handleSubmit(onSubmit)} aria-label="Contact form">
 
           <div className={formStyle.labelCtr }>
-            <FormLabel labelText='Let’s start with the basics. Type in your first name.' labelFor="name" />
-            {errors.name && (
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+            
+            {/* {errors.name && (
               <div className={formStyle.errorMsg}><span id="name-error" role="alert">
                 {errors.name.message}
               </span></div>
-            )}
+            )} */}
           </div>
 
           
@@ -90,8 +94,9 @@ return alert("something went wrong")
             <div className={commonStyle.inputCtr}>
               <FormInput
              
+             autoFocus={true}
               id={'name'}
-              placeholder={'name'}
+              placeholder={'First name'}
               type={'text'}
               {...register('name')}
               aria-invalid={errors.name ? 'true' : 'false'}

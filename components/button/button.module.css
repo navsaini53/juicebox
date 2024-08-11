@@ -22,4 +22,5 @@
   }
   .invertedBtn{
     background:var(--text-white); 
+    color:black ;
   }

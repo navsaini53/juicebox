@@ -23,3 +23,10 @@
   .errorInput{
     border: 2px solid red;
   }
+  .inputField:focus {
+  outline:none;
+}
+.errorMsg{ color: red; 
+  margin-top: 20px;
+  
+  font-size: 12px; }

@@ -13,9 +13,11 @@
 .labelCtr{
     flex: 1;
     text-align: center;
+
+    margin:20px 0px;
 }
 
-.errorMsg{ color: red; 
+/* .errorMsg{ color: red; 
     margin-top: 20px;
     
-    font-size: 12px; }
+    font-size: 12px; } */

@@ -69,12 +69,16 @@ export default function ContactEmailForm() {
         <form className={formStyle.formBody} onSubmit={handleSubmit(onSubmit)} aria-label="Contact form">
 
           <div className={formStyle.labelCtr}>
-            <FormLabel labelText='How should we contact you? Type in your email address.' labelFor="email" />
-            {errors.email && (
+            <FormLabel labelText='How should we contact you ? Type in your email address.'
+            labelFor="email" 
+            errors={errors.email}
+            errorId={'email-error'}
+            />
+            {/* {errors.email && (
               <div className={formStyle.errorMsg}><span id="email-error" role="alert">
                 {errors.email.message}
               </span></div>
-            )}
+            )} */}
           </div>
           <div className={commonStyle.formCtr}>
 
@@ -84,9 +88,11 @@ export default function ContactEmailForm() {
 
               <FormInput
 
+
                 id={'email'}
-                placeholder={'Email Addres'}
+                placeholder={'Email address'}
                 type={'text'}
+                autoFocus={true}
                 {...register('email')}
                 aria-invalid={errors.email ? 'true' : 'false'}
                 aria-describedby="email-error"

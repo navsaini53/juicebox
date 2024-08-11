@@ -2,7 +2,7 @@
 import {useState} from 'react';
 
 import Lottie from "lottie-react";
-
+import { useRouter } from 'next/navigation';
 import Header from '../../../../components/header/header';
 import MyButton from '../../../../components/button/button';
 
@@ -17,6 +17,7 @@ import local from 'next/font/local';
 export default function Result() {
 
   
+  const router=useRouter();
 
   const [name,setName]=useState<string|null>('');
   const [email,setEmail]=useState<string|null>('');
@@ -37,7 +38,7 @@ export default function Result() {
 
 
 
-      <div className={commonStyle.formSection}>
+      <div className={commonStyle.swiperSection}>
 
         <div className={formStyle.lottieCtr}>
           <Lottie animationData={juicebotJson}
@@ -51,18 +52,33 @@ export default function Result() {
 
         <div className={formStyle.formBody}>
 
-          <div className={formStyle.labelCtr }>
-          Thanks . {name}, {email} Now its time to  get a reality check.
-          </div>
-          <div className={commonStyle.formCtr}>
+          <p className={formStyle.labelCtr } role="alert">
+          Thanks . {name} Now, it's time to  get a reality check.
+          </p>
+          
+          <p className={formStyle.labelCtr } role="alert">
+         It will take 2-3 minutes
+          </p>
+          {/* <div className={commonStyle.formCtr}>
 
 
-           
+          
 
 
-          </div>
+          </div> */}
         </div>
       </div>
+
+      <MyButton
+        isHomeBtn={false}
+        isInverted={true}
+        title={'Continue'}
+        onBtnClick={()=>{
+       
+         router.replace("/")
+       
+        }}
+      />
 
     </main>
 

@@ -1,6 +1,6 @@
 "use client"; // This is a client component 👈🏽
 
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
@@ -25,6 +25,10 @@ export default function Home() {
   }, { scope: container })
 
 
+  useEffect(() => {
+    // Prefetch the dashboard page
+    router.prefetch('/swiper')
+  }, [router])
 
 
 
@@ -61,7 +65,7 @@ export default function Home() {
         <LinkButton
           navigateTo={'/swiper'}
           isHomeBtn={true}
-          title={'Get a reality csheck'}
+          title={'Get a reality check'}
         />
       </main>
     </ReactLenis>

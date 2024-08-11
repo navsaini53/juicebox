@@ -4,6 +4,7 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from "./header.module.css";
+import { useRouter } from 'next/navigation';
 
 gsap.registerPlugin(useGSAP);
 
@@ -14,6 +15,8 @@ interface SwiperProps {
 
 const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
+
+  const router =useRouter();
   const container = useRef<HTMLDivElement>(null);
 
   const { contextSafe } = useGSAP({ scope: container.current ?? undefined, });
@@ -122,7 +125,11 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
       <div className={styles.refreshBtn} >
 
-        <button className={styles.btnCtr} tabIndex={0}>
+        <button className={styles.btnCtr} tabIndex={0} onClick={()=>{
+        
+        // router.refresh();  to refresh server side functionality
+         window.location.reload();
+          }}>
 
           <Image
             src="/img/refresh.svg"
