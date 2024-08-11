@@ -10,10 +10,14 @@ import HomeAnimatedText from "../../components/home/homeAnimatedText";
 import HeaderComp from "../../components/header/header";
 import LinkButton from "../../components/button/linkButton";
 import styles from "./page.module.css";
+// import LottieAnimation from '../../components/home/homeLottieAnimation';
+
 gsap.registerPlugin(useGSAP);
 
 export default function Home() {
   const router = useRouter();
+
+
 
   const container = useRef<HTMLDivElement>(null);
 
@@ -41,13 +45,15 @@ export default function Home() {
       <main className={styles.main}
         ref={container}
       >
-        <HeaderComp hideBack={true} />
+        <HeaderComp hideBack={true} 
+        onBack={()=>{}}
+        />
 
-        {/* <LottieAnimation/> */}
 
         <div className={styles.center}>
           <div className={styles.imgContainer}>
 
+          {/* <LottieAnimation /> */}
             <Image
               src="/img/homeImg.svg"
               alt="Homepage main image"

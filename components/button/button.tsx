@@ -20,6 +20,7 @@ const ButtonComp: React.FC<SwiperProps> = ({ isHomeBtn, isInverted, title, onBtn
   return (
     <div className={styles.footerCtr}>
       <button className={defaultBtnClass}
+      autoFocus={true}
       aria-label={ariaLabel}
         onClick={onBtnClick}
       >

@@ -10,7 +10,7 @@
   border-radius: 20px;
   font-size: var(--medium-font-size);
   /* padding: 24px 0px; */
-
+  outline: 0;
   display: flex; 
   align-items: center; 
   justify-content: center; 
@@ -24,6 +24,7 @@
   .homeBtn{
     background:var(--primary-color) !important; 
     border:none;
+    outline: 0;
    
   }
   .invertedBtn{

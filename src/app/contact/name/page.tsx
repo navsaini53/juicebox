@@ -56,7 +56,9 @@ export default function UserForm() {
     return (<>
 
             <main className={commonStyle.main}>
-                <Header hideBack={false}/>
+                <Header hideBack={false} onBack={()=>{
+                     window.history.back();
+                }}/>
 
 
                 <div className={commonStyle.formSection}>

@@ -93,12 +93,11 @@ const Header: React.FC<SwiperProps> = ({ hideBack,onBack }) => {
           onClick={() => {
       
             if(onBack){
-
               onBack();
-              return;
+            
             }
 
-            window.history.back();
+           
       
            
 
