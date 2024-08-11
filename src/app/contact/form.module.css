@@ -1,9 +1,4 @@
-.lottieCtr{
-    flex: 1;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-}
+
 .formBody{ 
     flex: 2;
     display: flex;

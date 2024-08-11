@@ -10,7 +10,7 @@
 .swiperSection {
 
 
-  height: calc(100vh - (2 * var(--header-height)) - (2 * var(--body-padding)));
+  height: calc(100vh - var(--header-height) - var(--footer-height) - (2 * var(--body-padding)));
 
 }
 
@@ -30,6 +30,8 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  height:var(--footer-height);
+  align-items: center;
 }
 
 .inputCtr {

@@ -9,7 +9,12 @@
   border: 1px solid var(--text-white);
   border-radius: 20px;
   font-size: var(--medium-font-size);
-  padding: 24px 0px;
+  /* padding: 24px 0px; */
+
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  min-height: 60px;
   width: 100%;
   text-align: center;
   
@@ -18,7 +23,7 @@
   .homeBtn{
     background:var(--primary-color) !important; 
     border:none;
-    /* color:var(--text-white); */
+   
   }
   .invertedBtn{
     background:var(--text-white); 
@@ -28,8 +33,9 @@
   .footerCtr {
 
     width: 100%;
-    height: var(--button-height);
+    height: var(--footer-height);
     display: flex;
     align-items: center;
+    
   }
   

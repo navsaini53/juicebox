@@ -1,6 +1,8 @@
 "use client"; // This is a client component 👈🏽
-import { useEffect, useRef } from 'react';
+import {  useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from "./header.module.css";
@@ -50,11 +52,11 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
 
 
-  const onMouseEnter = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const onMouseEnter = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     startAnimation();
   };
 
-  const onMouseLeave = throttle((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const onMouseLeave = throttle((event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     restoreAnimation()
   },1000,{
     'leading': true,
@@ -110,9 +112,9 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
       <div className={styles.screenTitle}>
 
 
-        <div id='logoDiv'
+        <Link 
           className={styles.logoDiv}
-          aria-label='Logo Image'
+          href={"/"}
           tabIndex={0}
           // onTouchStart={handleTouchStart}
           // onTouchEnd={handleTouchEnd}
@@ -132,7 +134,7 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
             <path d="M5.555 0.532471C3.7977 0.532471 2.43091 1.9268 2.43091 3.67783C2.43091 5.42885 3.7977 6.79076 5.555 6.79076C7.3123 6.79076 8.71163 5.42885 8.71163 3.67783C8.71163 1.9268 7.3123 0.532471 5.555 0.532471Z" fill="#FAFAFA" />
             <path className="juiceEnd" d="M82.3119 8.26069C79.9363 8.26069 78.5044 9.23348 77.8102 10.3036C77.8102 10.3036 77.9403 9.39561 77.9403 8.29312V1.0188H72.7227V23.7497H77.9403V22.0959C78.6237 23.1336 80.1532 24.1388 82.3119 24.1388C86.2495 24.1388 89.417 20.7989 89.417 16.1835C89.417 11.5682 86.2495 8.26069 82.3119 8.26069ZM80.9125 19.4262C79.1227 19.4262 77.8535 17.9346 77.8535 16.1835C77.8535 14.4001 79.1227 12.9733 80.9125 12.9733C82.7349 12.9733 84.0041 14.4001 84.0041 16.1835C84.0041 17.9346 82.7349 19.4262 80.9125 19.4262Z" fill="#FAFAFA" />
           </svg>
-        </div>
+        </Link>
       </div>
 
       <div className={styles.refreshBtn} >

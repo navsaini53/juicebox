@@ -11,8 +11,8 @@ const FormButton: React.FC<{}> = () => {
               <Image
                 src="/img/arrowUp.svg"
                 alt="Submit Form"
-                width={20}
-                height={20}
+                width={16}
+                height={16}
                 priority={false}
               />
             </button>

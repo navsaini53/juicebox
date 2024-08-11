@@ -9,7 +9,7 @@ import Header from '../../../../components/header/header';
 import FormLabel from '../../../../components/form/formLabel';
 import FormInput from '../../../../components/form/formInput';
 import FormButton from '../../../../components/form/formButton';
-import juicebotJson from "../../../../public/animations/Juicebot.json";
+import FormImage from '../../../../components/form/formImage';
 import commonStyle from "../../common.module.css";
 
 import formStyle from "../form.module.css";
@@ -56,14 +56,7 @@ export default function ContactEmailForm() {
 
       <div className={commonStyle.formSection}>
 
-        <div className={formStyle.lottieCtr}>
-          <Lottie animationData={juicebotJson}
-            style={{
-              height: 100
-            }}
-            loop={true} />
-        </div>
-
+      <FormImage/>
 
 
         <form className={formStyle.formBody} onSubmit={handleSubmit(onSubmit)} aria-label="Contact form">
@@ -74,11 +67,7 @@ export default function ContactEmailForm() {
             errors={errors.email}
             errorId={'email-error'}
             />
-            {/* {errors.email && (
-              <div className={formStyle.errorMsg}><span id="email-error" role="alert">
-                {errors.email.message}
-              </span></div>
-            )} */}
+          
           </div>
           <div className={commonStyle.formCtr}>
 

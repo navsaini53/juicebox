@@ -12,14 +12,7 @@ interface InputProps {
   [key: string]: any;
 }
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  return (
-    <div className="input-wrapper">
-      <input
-        {...props}
-        ref={ref}
-        className={styles.inputField}
-      />
-    </div>
+  return ( <input {...props} ref={ref} className={styles.inputField} />
   );
 });
 

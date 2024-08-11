@@ -21,7 +21,7 @@ const ButtonComp: React.FC<SwiperProps> = ({isHomeBtn,isInverted,title,onBtnClic
     <button className={defaultBtnClass}
      onClick={onBtnClick} 
     >
-      {title} 
+        {title} 
     </button>
   </div>
   );

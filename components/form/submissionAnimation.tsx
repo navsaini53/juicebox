@@ -2,28 +2,29 @@
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 import gsap from 'gsap';
-import Lenis from 'lenis';
-// import Lenis from 'react/lenis';
 import styles from './form.module.css';
 import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(useGSAP);
 
-const ResultAnimation: React.FC = () => {
+// type AnimationProps={
+//   animate:boolean
+// }
+
+const ResultAnimation: React.FC<{}> = ({}) => {
+
+
   const animationContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Initialize Lottie animation
     const anim = lottie.loadAnimation({
       container: animationContainer.current!,
       renderer: 'svg',
       loop: false,
       autoplay: false,
-      path: '/animations/Juicebot.json', // replace with your Lottie JSON file path
+      path: '/animations/Juicebot.json', 
     });
 
-
-   // tl.play()
 
     return () => {
       anim.destroy();
