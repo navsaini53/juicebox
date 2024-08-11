@@ -33,10 +33,6 @@ export default function Home() {
   }, [router])
 
   
-  useEffect(()=>{
-
-    console.log("running")
-  },[])
 
 
 

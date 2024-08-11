@@ -39,7 +39,7 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
     })
     tl.current.to(".juiceEnd", { x: -60,
-      ease:'bounce.out',
+     
       duration: 0.1 });
 
 

@@ -7,17 +7,18 @@
     /* border:1px solid red; */
 }
 .backBtn{
-    /* flex:1; */
+    flex:1;
     text-align: start;
     margin: auto;
+    min-width: 50px;
+    /* border:1px solid red; */
 
 
 
 }
 .screenTitle{
-    flex:1;
-    /* text-align: center; */
-    /* margin: auto; */
+   flex:4;
+   
     /* border: 1px solid yellow; */
     display: flex;
 	
@@ -28,7 +29,7 @@
 
 }
 .refreshBtn{
-    /* flex:1; */
+    flex:1;
     text-align: end;
     display: flex;
     justify-content: flex-end;
@@ -62,6 +63,20 @@
 @media (max-width: 700px) {
 
 
+    .backBtn{
+        flex:1;
+       
+    
+    }
+    .screenTitle{
+       flex:7;
+       
+    
+    }
+    .refreshBtn{
+       
+        flex:1;
+    }
     .logoDiv{
         width: 100%;
       

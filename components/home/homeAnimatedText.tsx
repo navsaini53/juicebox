@@ -3,11 +3,9 @@
 import styles from "./home.module.css";
 
 
-const HomeAnimatedText: React.FC<> = () => {
+const HomeAnimatedText: React.FC<{}> = () => {
 
  
-
-
   return (
     <ul id="heroText" className={styles.heroUl} tabIndex={0} aria-label='This section gives information what Juicebox can do '>
     <li>WA businesses feel confident about future growth </li>
