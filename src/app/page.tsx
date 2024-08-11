@@ -54,7 +54,8 @@ export default function Home() {
               src="/img/homeImg.svg"
               alt="Homepage main image"
               fill
-              priority={true}
+              
+              // priority={true}
               style={{
                 transform: 'rotate(180deg)'
               }}

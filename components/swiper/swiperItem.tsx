@@ -18,7 +18,7 @@ const SwiperItem: React.FC<SwiperProps> = (props) => {
           alt="Swiper image "
           fill
           sizes="(min-width: 700px) 50vw, 80vw"
-          priority={true}
+          // priority={true}
         />
        
       </div>
