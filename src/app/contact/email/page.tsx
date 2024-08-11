@@ -72,7 +72,7 @@ export default function ContactEmailForm() {
           <div className={commonStyle.formCtr}>
 
 
-            <div className={commonStyle.inputCtr}>
+            {/* <div className={commonStyle.inputCtr}> */}
 
               <FormInput
 
@@ -80,9 +80,10 @@ export default function ContactEmailForm() {
                 id={'email'}
                 placeholder={'Email address'}
                 type={'text'}
-                autoFocus={true}
                 {...register('email')}
-                  aria-required="true"
+                autoFocus={true}
+                role="textbox"   
+                aria-required="true"
                 aria-label="Enter Your Email Id"
                 aria-invalid={errors.email ? 'true' : 'false'}
               
@@ -90,7 +91,7 @@ export default function ContactEmailForm() {
 
               />
                 <FormButton/>
-            </div>
+            {/* </div> */}
 
           
 
