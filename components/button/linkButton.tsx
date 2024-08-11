@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import styles from "./button.module.css";
-import commonStyle from "../../src/app/common.module.css";
 
 interface BtnProps {
   title:string,
@@ -18,7 +17,7 @@ const LinkButton: React.FC<BtnProps> = ({title,navigateTo,isHomeBtn}) => {
 
 
   return (
-    <div className={commonStyle.footerCtr}>
+    <div className={styles.footerCtr}>
     <Link className={defaultBtnClass} href={`${navigateTo}`}>{title}</Link>
   </div>
   );

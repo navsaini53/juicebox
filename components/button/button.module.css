@@ -24,3 +24,12 @@
     background:var(--text-white); 
     color:black ;
   }
+
+  .footerCtr {
+
+    width: 100%;
+    height: var(--button-height);
+    display: flex;
+    align-items: center;
+  }
+  

@@ -38,3 +38,18 @@
   height: 100px;
   }
   
+
+
+.btnCtr {
+  position: fixed;
+  right: 30px;
+  bottom: 32px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: var(--text-gray-color);
+  border-radius: 50%;
+  display: flex;
+  padding: 10px;
+  border: none;
+}

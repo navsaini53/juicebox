@@ -18,17 +18,12 @@ export default function Home() {
 
   const container = useRef<HTMLDivElement>(null);
 
-  // const { contextSafe } = useGSAP({ scope: container.current ?? undefined, });
-
-  const animationContainer = useRef<HTMLDivElement>(null);
-
   useGSAP(() => {
     gsap.from("#heroText li", { y: 1000, stagger: 1 });
   }, { scope: container })
 
 
   useEffect(() => {
-    // Prefetch the dashboard page
     router.prefetch('/swiper')
   }, [router])
 

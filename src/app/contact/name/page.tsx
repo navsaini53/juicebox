@@ -10,6 +10,7 @@ import * as yup from 'yup';
 import Header from '../../../../components/header/header';
 import FormLabel from '../../../../components/form/formLabel';
 import FormInput from '../../../../components/form/formInput';
+import FormButton from '../../../../components/form/formButton';
 import juicebotJson from "../../../../public/animations/Juicebot.json";
 import commonStyle from "../../common.module.css";
 
@@ -42,7 +43,7 @@ export default function UserForm() {
   const onSubmit: SubmitHandler<FormData> = (data) => {
 
     if(!data ||!data.name){
-return alert("something went wrong")
+      return alert("something went wrong")
     }
     localStorage.setItem("name", data.name);
 
@@ -79,12 +80,6 @@ return alert("something went wrong")
             errorId={"name-error"}
             errors={errors && errors.name}
             />
-            
-            {/* {errors.name && (
-              <div className={formStyle.errorMsg}><span id="name-error" role="alert">
-                {errors.name.message}
-              </span></div>
-            )} */}
           </div>
 
           
@@ -106,18 +101,9 @@ return alert("something went wrong")
              
             </div>
 
-            <button className={commonStyle.btnCtr} >
-              <Image
-                src="/img/arrowUp.svg"
-                alt="Submit Form"
-                width={20}
-                height={20}
-                priority={false}
-                objectFit="center"
+            <FormButton/>
 
-
-              />
-            </button>
+           
 
 
           </div>

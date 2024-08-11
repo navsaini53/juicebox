@@ -2,7 +2,6 @@
 
 
 import styles from "./button.module.css";
-import commonStyle from "../../src/app/common.module.css";
 
 interface SwiperProps {
   isHomeBtn: boolean;
@@ -18,7 +17,7 @@ const ButtonComp: React.FC<SwiperProps> = ({isHomeBtn,isInverted,title,onBtnClic
   if(isInverted) defaultBtnClass+=` ${styles.invertedBtn}`;
 
   return (
-    <div className={commonStyle.footerCtr}>
+    <div className={styles.footerCtr}>
     <button className={defaultBtnClass}
      onClick={onBtnClick} 
     >

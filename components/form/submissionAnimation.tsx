@@ -22,8 +22,7 @@ const ResultAnimation: React.FC = () => {
       path: '/animations/Juicebot.json', // replace with your Lottie JSON file path
     });
 
-  
-   
+
    // tl.play()
 
     return () => {
@@ -31,15 +30,16 @@ const ResultAnimation: React.FC = () => {
     };
   }, []);
 
+ 
   useGSAP(()=>{
     gsap.to(animationContainer.current, { rotation: 180, repeat:-1,
          yoyo:true ,duration:0.7,
          repeatDelay: 0.5,
-         });
+   });
     
 
 
-},[animationContainer])
+ },[animationContainer])
 
   return <div ref={animationContainer} className={styles.lottieContainer}></div>;
 };
