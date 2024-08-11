@@ -14,7 +14,7 @@ const SwiperItem: React.FC<SwiperProps> = (props) => {
 
     <div className={styles.imgCtr}>
       
-    
+
         
          <Image
           src="/img/Vectorpentagon.svg"

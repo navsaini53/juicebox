@@ -49,7 +49,7 @@
 }
 
 .btnCtr {
-  position: fixed;
+  position: absolute;
   right: 30px;
   bottom: 52px;
   width: 36px;
