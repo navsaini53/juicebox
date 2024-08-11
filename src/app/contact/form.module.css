@@ -16,6 +16,9 @@
     text-align: center;
     font-size: var(--medium-font-size);
     margin:20px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 /* .errorMsg{ color: red; 
