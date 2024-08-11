@@ -76,6 +76,79 @@ export default function UserForm() {
             errors={errors && errors.name}
             />
           </div>
+          <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>  <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>  <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>  <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>  <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>  <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>  <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>  <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>  <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>  <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>  <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>  <div className={formStyle.labelCtr }>
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
+            errorId={"name-error"}
+            errors={errors && errors.name}
+            />
+          </div>
 
           
           <div className={commonStyle.formCtr}>

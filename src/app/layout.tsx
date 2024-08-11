@@ -45,7 +45,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Juicebox assignment website",
-  description: "This website is given to check candidate's ability to design pixel perfect application",
+  description: "This website is given to check candidate's ability to design pixel perfect apps",
 };
 
 export default function RootLayout({
@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <meta charSet="utf-8" />
+      {/* <meta charSet="utf-8" /> */}
       </head>
       <body className={`${inter.className} 
       ${SohneBuch.variable}

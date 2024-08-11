@@ -89,7 +89,7 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
       <div className={styles.backBtn}>
 
         {!hideBack ? <button
-        // aria-label="Go back in your application"
+        aria-label="Go back in your application"
           onClick={() => {
             window.history.back();
           }}
@@ -144,7 +144,7 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
       <div className={styles.refreshBtn} >
 
         <button className={styles.btnCtr}
-        //  aria-label="Reload application"
+          aria-label="Reload application"
         tabIndex={0} onClick={() => {
           window.location.reload();
         }}>
