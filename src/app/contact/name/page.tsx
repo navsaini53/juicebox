@@ -1,9 +1,9 @@
 "use client"; // This is a client component 👈🏽
 import {useRef} from 'react';
-import { useRouter } from 'next/navigation';
+import {useRouter} from 'next/navigation';
 import Image from 'next/image';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import {useForm, SubmitHandler} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import Header from '../../../../components/header/header';
@@ -19,103 +19,89 @@ import commonStyle from "../../common.module.css";
 import formStyle from "../form.module.css";
 
 const schema = yup.object().shape({
-  name: yup
-    .string()
-    .required('Name is required')
-    .min(2, 'Name must be at least 2 characters')
+    name: yup
+        .string()
+        .required('Name is required')
+        .min(2, 'Name must be at least 2 characters')
 });
 
 
 type FormData = {
-  name: string;
+    name: string;
 };
 
 export default function UserForm() {
 
-  const router=useRouter();
-  
-  const nameRef = useRef<HTMLInputElement>(null);
+    const router = useRouter();
 
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
-    resolver: yupResolver(schema),
-  });
+    // const nameRef = useRef<HTMLInputElement>(null);
 
-
-
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-
-    if(!data ||!data.name){
-      return alert("something went wrong")
-    }
-    localStorage.setItem("name", data.name);
-
-    router.push("/contact/email");
-   
-  };
+    const {register, handleSubmit, formState: {errors}} = useForm<FormData>({
+        resolver: yupResolver(schema),
+    });
 
 
+    const onSubmit: SubmitHandler<FormData> = (data) => {
 
-  return (<>
+        if (!data || !data.name) {
+            return alert("something went wrong")
+        }
+        localStorage.setItem("name", data.name);
 
-    <main className={commonStyle.main}>
-      <Header hideBack={false} />
+        router.push("/contact/email");
 
-
-
-
-      <div className={commonStyle.formSection}>
-
-       
-       <FormImage/>
-
-        <form className={formStyle.formBody} onSubmit={handleSubmit(onSubmit)} aria-label="Contact form">
-             <div className={formStyle.labelCtr }>
-            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
-            labelFor="name"
-            errorId={"name-error"}
-            errors={errors && errors.name}
-            />
-          </div>
-
-          
-          <div className={commonStyle.formCtr}>
-
-           
-           <FormInput
-             
-             autoFocus={true}
-              id={'name'}
-              placeholder={'First name'}
-              type={'text'}
-              {...register('name')}
-              role="textbox"   
-              aria-required="true"
-              aria-label="Enter Your Name"
-              aria-invalid={errors.name ? 'true' : 'false'}
-      
-              />
-             
-          
-            <FormButton/>
-          
-
-         
-
-           
+    };
 
 
-          </div>
-        </form>
-      </div>
+    return (<>
 
-    </main>
-
+            <main className={commonStyle.main}>
+                <Header hideBack={false}/>
 
 
+                <div className={commonStyle.formSection}>
 
 
+                    <FormImage/>
+
+                    <form className={formStyle.formBody} onSubmit={handleSubmit(onSubmit)} aria-label="Contact form">
+                        <div className={formStyle.labelCtr}>
+                            <FormLabel labelText='Let’s start with the basics. Type in your first name.'
+                                       labelFor="name"
+                                       errorId={"name-error"}
+                                       errors={errors && errors.name}
+                            />
+                        </div>
 
 
-  </>
-  );
+                        <div className={commonStyle.formCtr}>
+
+
+                            <FormInput
+
+                                autoFocus={true}
+                                id={'name'}
+                                placeholder={'First name'}
+                                type={'text'}
+                                {...register('name')}
+                                role="textbox"
+                                aria-required="true"
+                                aria-label="Enter Your Name"
+                                aria-invalid={errors.name ? 'true' : 'false'}
+
+                            />
+
+
+                            <FormButton/>
+
+
+                        </div>
+                    </form>
+                </div>
+
+            </main>
+
+
+        </>
+    );
 }

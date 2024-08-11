@@ -1,7 +1,7 @@
 "use client"; // This is a client component 👈🏽
-import {useState} from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import {Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import SwipeItem from '../../../components/swiper/swiperItem';
 import MyHeader from '../../../components/header/header';
@@ -9,18 +9,17 @@ import MyButton from '../../../components/button/button';
 import styles from "../common.module.css";
 
 
-
 export default function SwiperComp() {
 
-  const router=useRouter();
+  const router = useRouter();
   const [slideRef, setSlide] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  
+
   const hitContinue = () => {
-   if(activeIndex==2){
-    router.push('/contact/name');
-   }
+    if (activeIndex == 2) {
+      router.push('/contact/name');
+    }
     slideRef.slideNext()
   }
 
@@ -31,18 +30,15 @@ export default function SwiperComp() {
       <div className={styles.swiperSection}>
 
         <Swiper
-
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={50}
           slidesPerView={1}
-
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           onSwiper={(swiper) => {
             setSlide(swiper)
           }}
           onSlideChange={(v) => {
-            
             setActiveIndex(v.activeIndex)
           }}
         >
@@ -78,11 +74,6 @@ export default function SwiperComp() {
 
 
     </main>
-
-
-
-
-
 
 
   </>

@@ -16,7 +16,6 @@ const FormButton: React.FC<{}> = () => {
 
             />
 
-            {/* <LottieAnimation animate={false}/> */}
 
 
         </div>

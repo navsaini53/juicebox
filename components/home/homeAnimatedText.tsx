@@ -5,16 +5,16 @@ import styles from "./home.module.css";
 
 const HomeAnimatedText: React.FC<{}> = () => {
 
- 
+
   return (
     <ul id="heroText" className={styles.heroUl} tabIndex={0} aria-label='Section contain most 5 important points about juicebox '>
-    <li>WA businesses feel confident about future growth </li>
-    <li>AI cant replace creativity  </li>
-    <li>Sales measure true success  </li>
-    <li>Human connection drives WA business  </li>
-    <li>The primary barrier to digital transformation is financial investment  </li>
-  </ul>
-    
+      <li>WA businesses feel confident about future growth </li>
+      <li>AI cant replace creativity  </li>
+      <li>Sales measure true success  </li>
+      <li>Human connection drives WA business  </li>
+      <li>The primary barrier to digital transformation is financial investment  </li>
+    </ul>
+
   );
 }
 

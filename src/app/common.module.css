@@ -25,21 +25,13 @@
 }
 
 
-
 .formCtr {
   width: 100%;
- 
   height:var(--footer-height);
   align-items: flex-end;
- 
   display: flex;
-   align-items: flex-end;
+  align-items: flex-end;
 
-   /* width: 100%;
-   height: var(--footer-height);
-   display: flex;
-   align-items: flex-end;
-   border: 1px solid red; */
 }
 
 .inputCtr {

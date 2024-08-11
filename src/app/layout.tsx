@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from 'next/font/local'
 
-// Import Swiper styles
-
 import "./globals.css";
 import 'swiper/scss';
 import 'swiper/scss/navigation';
@@ -56,7 +54,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      {/* <meta charSet="utf-8" /> */}
       </head>
       <body className={`${inter.className} 
       ${SohneBuch.variable}

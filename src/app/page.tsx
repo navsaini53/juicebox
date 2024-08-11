@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { ReactLenis,useLenis } from 'lenis/react';
+import { ReactLenis, useLenis } from 'lenis/react';
 import HomeAnimatedText from "../../components/home/homeAnimatedText";
 // import LottieAnimation from "../../components/home/lottieAnimation";
 import HeaderComp from "../../components/header/header";
@@ -27,16 +27,14 @@ export default function Home() {
     router.prefetch('/swiper')
   }, [router])
 
-  
-
 
 
   const lenis = useLenis(({ scroll }) => {
-  
+
   })
 
 
-  
+
 
 
   return (
@@ -50,28 +48,19 @@ export default function Home() {
 
         <div className={styles.center}>
           <div className={styles.imgContainer}>
-            {/* <Image
-              src="/img/homeImg.svg"
-              alt="Homepage main image"
-              fill
-              
-              // priority={true}
-              style={{
-                transform: 'rotate(180deg)'
-              }}
-            /> */}
-             <Image
+
+            <Image
               src="/img/homeImg.svg"
               alt="Homepage main image"
               sizes="300px"
               fill
               style={{
                 objectFit: 'contain',
-                  transform: 'rotate(180deg)'
+                transform: 'rotate(180deg)'
               }}
-            
+
             />
-          <HomeAnimatedText/>
+            <HomeAnimatedText />
           </div>
         </div>
 

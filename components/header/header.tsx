@@ -1,5 +1,5 @@
 "use client"; // This is a client component 👈🏽
-import {  useRef } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,7 +7,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from "./header.module.css";
 import { useRouter } from 'next/navigation';
-import {throttle} from 'lodash';
+import { throttle } from 'lodash';
 gsap.registerPlugin(useGSAP);
 
 
@@ -40,9 +40,11 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
       duration: 0.1,
 
     })
-    tl.current.to(".juiceEnd", { x: -60,
-     
-      duration: 0.1 });
+    tl.current.to(".juiceEnd", {
+      x: -60,
+
+      duration: 0.1
+    });
 
 
 
@@ -58,7 +60,7 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
   const onMouseLeave = throttle((event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     restoreAnimation()
-  },1000,{
+  }, 1000, {
     'leading': true,
     'trailing': false
   });
@@ -89,7 +91,7 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
       <div className={styles.backBtn}>
 
         {!hideBack ? <button
-        aria-label="Go back in your application"
+          aria-label="Go back in your application"
           onClick={() => {
             window.history.back();
           }}
@@ -113,13 +115,13 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
       <h1 className={styles.screenTitle} aria-label="Juicebox Logo Image">
 
 
-        <Link 
+        <Link
           className={styles.logoDiv}
           href={"/"}
           tabIndex={0}
-          
-          
-          
+
+
+
           // onTouchStart={handleTouchStart}
           // onTouchEnd={handleTouchEnd}
           onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >
@@ -145,9 +147,9 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
         <button className={styles.btnCtr}
           aria-label="Reload application"
-        tabIndex={0} onClick={() => {
-          window.location.reload();
-        }}>
+          tabIndex={0} onClick={() => {
+            window.location.reload();
+          }}>
 
           <Image
             src="/img/refresh.svg"

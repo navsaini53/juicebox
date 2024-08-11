@@ -1,4 +1,3 @@
-// components/LottieAnimation.tsx
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 import gsap from 'gsap';
@@ -7,11 +6,7 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(useGSAP);
 
-// type AnimationProps={
-//   animate:boolean
-// }
-
-const ResultAnimation: React.FC<{}> = ({}) => {
+const ResultAnimation: React.FC<{}> = ({ }) => {
 
 
   const animationContainer = useRef<HTMLDivElement>(null);
@@ -22,7 +17,7 @@ const ResultAnimation: React.FC<{}> = ({}) => {
       renderer: 'svg',
       loop: false,
       autoplay: false,
-      path: '/animations/Juicebot.json', 
+      path: '/animations/Juicebot.json',
     });
 
 
@@ -31,16 +26,17 @@ const ResultAnimation: React.FC<{}> = ({}) => {
     };
   }, []);
 
- 
-  useGSAP(()=>{
-    gsap.to(animationContainer.current, { rotation: 180, repeat:-1,
-         yoyo:true ,duration:0.7,
-         repeatDelay: 0.5,
-   });
-    
+
+  useGSAP(() => {
+    gsap.to(animationContainer.current, {
+      rotation: 180, repeat: -1,
+      yoyo: true, duration: 0.7,
+      repeatDelay: 0.5,
+    });
 
 
- },[animationContainer])
+
+  }, [animationContainer])
 
   return <div ref={animationContainer} className={styles.lottieContainer}></div>;
 };

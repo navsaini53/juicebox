@@ -13,30 +13,28 @@ const SwiperItem: React.FC<SwiperProps> = (props) => {
   return (<div className={styles.swiperCtr}>
 
     <div className={styles.imgCtr}>
-      
 
-        
-         <Image
-          src="/img/Vectorpentagon.svg"
-          alt="Swiper image "
-          sizes="300px"
-          fill
-          style={{
-            objectFit: 'contain',
-              
-          }}
-           priority={true}
-        />
-       
-      </div>
+      <Image
+        src="/img/Vectorpentagon.svg"
+        alt="Swiper image "
+        sizes="300px"
+        fill
+        style={{
+          objectFit: 'contain',
 
-        <h4 className={styles.swipeTxt}>
-          {props.swipeDescriptionOne}
-          {
-            props.swipeDescriptionTwo?<span className={styles.swipeGrayTxt}>{props.swipeDescriptionTwo}</span>:null
-          }
-        </h4>
-  
+        }}
+        priority={true}
+      />
+
+    </div>
+
+    <h4 className={styles.swipeTxt}>
+      {props.swipeDescriptionOne}
+      {
+        props.swipeDescriptionTwo ? <span className={styles.swipeGrayTxt}>{props.swipeDescriptionTwo}</span> : null
+      }
+    </h4>
+
 
   </div>
   );
