@@ -50,7 +50,7 @@ export default function Home() {
 
         <div className={styles.center}>
           <div className={styles.imgContainer}>
-            <Image
+            {/* <Image
               src="/img/homeImg.svg"
               alt="Homepage main image"
               fill
@@ -59,6 +59,17 @@ export default function Home() {
               style={{
                 transform: 'rotate(180deg)'
               }}
+            /> */}
+             <Image
+              src="/img/homeImg.svg"
+              alt="Homepage main image"
+              sizes="300px"
+              fill
+              style={{
+                objectFit: 'contain',
+                  transform: 'rotate(180deg)'
+              }}
+            
             />
           <HomeAnimatedText/>
           </div>

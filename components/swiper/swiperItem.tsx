@@ -13,12 +13,19 @@ const SwiperItem: React.FC<SwiperProps> = (props) => {
   return (<div className={styles.swiperCtr}>
 
     <div className={styles.imgCtr}>
-        <Image
+      
+    
+        
+         <Image
           src="/img/Vectorpentagon.svg"
           alt="Swiper image "
+          sizes="100vw"
           fill
-          sizes="(min-width: 700px) 50vw, 80vw"
-          // priority={true}
+          // style={{
+          //   objectFit: 'contain',
+              
+          // }}
+           priority={true}
         />
        
       </div>
