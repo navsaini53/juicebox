@@ -19,12 +19,12 @@ const SwiperItem: React.FC<SwiperProps> = (props) => {
          <Image
           src="/img/Vectorpentagon.svg"
           alt="Swiper image "
-          sizes="100vw"
+          sizes="300px"
           fill
-          // style={{
-          //   objectFit: 'contain',
+          style={{
+            objectFit: 'contain',
               
-          // }}
+          }}
            priority={true}
         />
        
