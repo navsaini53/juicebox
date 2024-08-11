@@ -57,8 +57,8 @@ export default function Result() {
 
         <div className={formStyle.formBody}>
 
-          <p className={formStyle.labelCtr } role="alert">
-          Thanks . {name} Now, it's time to  get a reality check.
+          <p className={formStyle.labelCtr} role="alert">
+          Thanks. {name} Now, it&apos;s time to  get a reality check.
           </p>
           
           <p className={formStyle.labelCtr } role="alert">

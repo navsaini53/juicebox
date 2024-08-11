@@ -4,7 +4,7 @@
     justify-content: space-between;
     width: 100%;
     height:var(--header-height);
-    border:1px solid red;
+    /* border:1px solid red; */
 }
 .backBtn{
     /* flex:1; */
@@ -18,7 +18,7 @@
     flex:1;
     /* text-align: center; */
     /* margin: auto; */
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     display: flex;
 	
 	flex-direction: row;
@@ -52,10 +52,10 @@
 }
 
 .logoDiv{
-    width: 400px;
-    padding:10px;
+    width: 350px;
+    
+   
 }
-
 
 
 /* Mobile */
@@ -64,7 +64,8 @@
 
     .logoDiv{
         width: 100%;
-        padding:10px;
+      
+        /* background: red; */
   
     
     }

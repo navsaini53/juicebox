@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from "./header.module.css";
 import { useRouter } from 'next/navigation';
-
+import {throttle} from 'lodash';
 gsap.registerPlugin(useGSAP);
 
 
@@ -16,77 +16,66 @@ interface SwiperProps {
 const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
 
-  const router =useRouter();
+  const router = useRouter();
   const container = useRef<HTMLDivElement>(null);
+  const tl = useRef<any>();
+
 
   const { contextSafe } = useGSAP({ scope: container.current ?? undefined, });
 
 
-  // const logoDiv=useRef<Document>(document);
+  useGSAP(() => {
+
+    tl.current = gsap.timeline({
+      smoothChildTiming: true,
+      // autoRemoveChildren: true,
+      paused: true
+
+    })
+    tl.current.to(".juiceEaseOut", {
+      x: -200,
+      opacity: 0,
+      duration: 0.1,
+
+    })
+    tl.current.to(".juiceEnd", { x: -60,
+      ease:'bounce.out',
+      duration: 0.1 });
+
+
+
+
+
+  }, { scope: container })
+
+
 
   const onMouseEnter = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    // console.log("mouse enter")
-
     startAnimation();
   };
 
-  // const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-  //   // console.log("touch start")
-  //   startAnimation()
-  // };
-  // const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
-  //   console.log("touch end")
-  //   restoreAnimation()
-  // };
-
-  const onMouseLeave = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-  console.log("mouse leave")
+  const onMouseLeave = throttle((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     restoreAnimation()
-  };
+  },1000,{
+    'leading': true,
+    'trailing': false
+  });
 
-
-
-
- 
 
   const startAnimation = contextSafe(() => {
+
     if (container.current) {
 
-      let t1 = gsap.timeline({
-        smoothChildTiming: true,
-        autoRemoveChildren: true,
-      });
-
-      t1.to(".juiceEaseOut", {
-        x: -200,
-        opacity: 0,
-        duration: 0.1,
-       
-      })
-      t1.to(".juiceEnd", { x: -60, duration: 0.1 })
-     
-      
+      tl.current.play()
 
     }
   })
 
   const restoreAnimation = contextSafe(() => {
-    if (container.current) {
-    
-      let t1 = gsap.timeline({ 
-        smoothChildTiming: true,
-        autoRemoveChildren: true,
-      });
-      t1.to(".juiceEaseOut", {
-        x: 0,
-        opacity: 1,
-        duration: 0.1,
-      })
-      t1.to(".juiceEnd", { x: 0, duration: 0 })
-     
-     
 
-      
+    if (container.current) {
+
+      tl.current.reverse()
 
     }
   })
@@ -98,10 +87,10 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
       <div className={styles.backBtn}>
 
         {!hideBack ? <button
-        onClick={()=>{
-          window.history.back();
-        }}
-        className={styles.btnCtr} tabIndex={0}>
+          onClick={() => {
+            window.history.back();
+          }}
+          className={styles.btnCtr} tabIndex={0}>
 
           <Image
             src="/img/arrowLeft.svg"
@@ -109,14 +98,12 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
             width={20}
             height={20}
             priority={true}
-            // style={{
-            //   objectFit:'center',
-            // }}
+
           />
         </button>
 
 
-: null}
+          : null}
 
       </div>
 
@@ -124,14 +111,16 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
 
         <div id='logoDiv'
-        // ref={logoDiv}
-        className={styles.logoDiv}
-        aria-label='Logo Image'
+          className={styles.logoDiv}
+          aria-label='Logo Image'
           tabIndex={0}
           // onTouchStart={handleTouchStart}
           // onTouchEnd={handleTouchEnd}
-          onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} style={{border:'1px solid red'}}>
-          <svg width="100%" height="30" viewBox="0 0 124 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >
+
+          <svg
+
+            width="100%" height="30" viewBox="0 0 124 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path className="juiceEaseOut" d="M21.121 17.0265C21.121 18.8099 19.982 19.3612 18.8755 19.3612C17.8016 19.3612 16.5975 18.8099 16.5975 17.0265V8.64966H11.3799V18.129C11.3799 21.3068 13.9507 24.1387 18.8755 24.1387C23.8329 24.1387 26.3386 21.3176 26.3386 18.129V8.64966H21.121V17.0265Z" fill="#FAFAFA" />
             <path className="juiceEaseOut" d="M29.5603 13.0921V23.7495H34.7671V8.64966H29.5603V13.0921Z" fill="#FAFAFA" />
             <path className="juiceEaseOut" id="juciboxB" d="M32.1426 0.5C30.3853 0.5 29.0186 1.89433 29.0186 3.64536C29.0186 5.39638 30.3853 6.75829 32.1426 6.75829C33.8999 6.75829 35.2993 5.39638 35.2993 3.64536C35.3101 1.89433 33.9108 0.5 32.1426 0.5Z" fill="#FAFAFA" />
@@ -148,11 +137,9 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
       <div className={styles.refreshBtn} >
 
-        <button className={styles.btnCtr} tabIndex={0} onClick={()=>{
-        
-        // router.refresh();  to refresh server side functionality
-         window.location.reload();
-          }}>
+        <button className={styles.btnCtr} tabIndex={0} onClick={() => {
+          window.location.reload();
+        }}>
 
           <Image
             src="/img/refresh.svg"
@@ -160,7 +147,7 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
             width={20}
             height={20}
             priority={true}
-           
+
 
           />
         </button>
