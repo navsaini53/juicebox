@@ -82,8 +82,11 @@ export default function ContactEmailForm() {
                 type={'text'}
                 autoFocus={true}
                 {...register('email')}
+                  aria-required="true"
+                aria-label="Enter Your Email Id"
                 aria-invalid={errors.email ? 'true' : 'false'}
-                aria-describedby="email-error"
+              
+            
 
               />
             </div>

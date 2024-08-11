@@ -72,7 +72,8 @@ export default function UserForm() {
         <form className={formStyle.formBody} onSubmit={handleSubmit(onSubmit)} aria-label="Contact form">
 
           <div className={formStyle.labelCtr }>
-            <FormLabel labelText='Let’s start with the basics. Type in your first name.' labelFor="name"
+            <FormLabel labelText='Let’s start with the basics. Type in your first name.' 
+            labelFor="name"
             errorId={"name-error"}
             errors={errors && errors.name}
             />
@@ -89,8 +90,13 @@ export default function UserForm() {
               placeholder={'First name'}
               type={'text'}
               {...register('name')}
-              aria-invalid={errors.name ? 'true' : 'false'}
-              aria-describedby="name-error"
+              role="textbox"   
+              aria-required="true"
+              aria-label="Enter Your Name"
+            
+               aria-invalid={errors.name ? 'true' : 'false'}
+
+              // aria-describedby="name-error"
       
               />
              

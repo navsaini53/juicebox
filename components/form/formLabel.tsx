@@ -17,7 +17,10 @@ const FormLabel: React.FC<FormProps> = ({labelText,labelFor,errorId,errors}) => 
       {labelText}
       </label>
         {errors && (
-              <p className={styles.errorMsg} id={errorId} role="alert">
+              <p className={styles.errorMsg}
+              // aria-label={errors.message}
+            
+              id={errorId} role="alert">
                 {errors.message}
               </p>
             )}

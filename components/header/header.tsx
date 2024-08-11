@@ -89,6 +89,7 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
       <div className={styles.backBtn}>
 
         {!hideBack ? <button
+        // aria-label="Go back in your application"
           onClick={() => {
             window.history.back();
           }}
@@ -109,13 +110,16 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
 
       </div>
 
-      <div className={styles.screenTitle}>
+      <h1 className={styles.screenTitle} aria-label="Juicebox Logo Image">
 
 
         <Link 
           className={styles.logoDiv}
           href={"/"}
           tabIndex={0}
+          
+          
+          
           // onTouchStart={handleTouchStart}
           // onTouchEnd={handleTouchEnd}
           onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >
@@ -135,11 +139,13 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
             <path className="juiceEnd" d="M82.3119 8.26069C79.9363 8.26069 78.5044 9.23348 77.8102 10.3036C77.8102 10.3036 77.9403 9.39561 77.9403 8.29312V1.0188H72.7227V23.7497H77.9403V22.0959C78.6237 23.1336 80.1532 24.1388 82.3119 24.1388C86.2495 24.1388 89.417 20.7989 89.417 16.1835C89.417 11.5682 86.2495 8.26069 82.3119 8.26069ZM80.9125 19.4262C79.1227 19.4262 77.8535 17.9346 77.8535 16.1835C77.8535 14.4001 79.1227 12.9733 80.9125 12.9733C82.7349 12.9733 84.0041 14.4001 84.0041 16.1835C84.0041 17.9346 82.7349 19.4262 80.9125 19.4262Z" fill="#FAFAFA" />
           </svg>
         </Link>
-      </div>
+      </h1>
 
       <div className={styles.refreshBtn} >
 
-        <button className={styles.btnCtr} tabIndex={0} onClick={() => {
+        <button className={styles.btnCtr}
+        //  aria-label="Reload application"
+        tabIndex={0} onClick={() => {
           window.location.reload();
         }}>
 

@@ -7,7 +7,7 @@ const HomeAnimatedText: React.FC<{}> = () => {
 
  
   return (
-    <ul id="heroText" className={styles.heroUl} tabIndex={0} aria-label='This section gives information what Juicebox can do '>
+    <ul id="heroText" className={styles.heroUl} tabIndex={0} aria-label='Section contain most 5 important points about juicebox '>
     <li>WA businesses feel confident about future growth </li>
     <li>AI cant replace creativity  </li>
     <li>Sales measure true success  </li>

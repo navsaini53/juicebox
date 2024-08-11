@@ -52,7 +52,7 @@ export default function Home() {
           <div className={styles.imgContainer}>
             <Image
               src="/img/homeImg.svg"
-              alt="Homepage main image - Hero area image"
+              alt="Homepage main image"
               fill
               priority={true}
               style={{

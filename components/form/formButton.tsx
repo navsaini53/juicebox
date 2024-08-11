@@ -10,7 +10,7 @@ const FormButton: React.FC<{}> = () => {
          className={styles.btnCtr} >
               <Image
                 src="/img/arrowUp.svg"
-                alt="Submit Form"
+                alt="Button to submit details"
                 width={16}
                 height={16}
                 priority={false}

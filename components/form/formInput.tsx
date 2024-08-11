@@ -12,7 +12,8 @@ interface InputProps {
   [key: string]: any;
 }
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  return ( <input {...props} ref={ref} className={styles.inputField} />
+  return ( <input
+     {...props} ref={ref} className={styles.inputField} />
   );
 });
 
