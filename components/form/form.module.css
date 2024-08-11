@@ -13,6 +13,7 @@
     border-radius: 18px;
     justify-content: space-between;
     opacity: 0px;
+    border:1px solid white;
   
     border: 1px solid var(--text-gray-color);
     background: var(--background-color);
