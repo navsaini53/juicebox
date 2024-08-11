@@ -2,7 +2,7 @@
 
 
     justify-content: center;
-    height: calc(100vh - (2 * var(--header-height)) - var(--body-padding));
+    height: calc(100vh - var(--header-height) - var(--footer-height)  - var(--body-padding));
     vertical-align: middle;
 }
 

@@ -18,7 +18,7 @@ const LinkButton: React.FC<BtnProps> = ({ title, navigateTo, isHomeBtn }) => {
 
   return (
     <div className={styles.footerCtr}>
-      <Link className={defaultBtnClass} href={`${navigateTo}`}>{title}</Link>
+      <Link className={defaultBtnClass} aria-label="Click here to get more information about juicebox" autoFocus={true} href={`${navigateTo}`}>{title}</Link>
     </div>
   );
 }

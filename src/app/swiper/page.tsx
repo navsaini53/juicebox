@@ -1,5 +1,5 @@
 "use client"; // This is a client component 👈🏽
-import { useState } from 'react';
+import { act, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -19,6 +19,7 @@ export default function SwiperComp() {
   const hitContinue = () => {
     if (activeIndex == 2) {
       router.push('/contact/name');
+      return;
     }
     slideRef.slideNext()
   }
@@ -26,7 +27,19 @@ export default function SwiperComp() {
   return (<>
 
     <main className={styles.main}>
-      <MyHeader hideBack={false} />
+      <MyHeader hideBack={false} 
+      onBack={()=>{
+        if(activeIndex==0){
+          window.history.back();
+          return;
+        }
+
+        slideRef.slidePrev()
+
+
+      }}
+      
+      />
       <div className={styles.swiperSection}>
 
         <Swiper
@@ -42,7 +55,7 @@ export default function SwiperComp() {
             setActiveIndex(v.activeIndex)
           }}
         >
-          <SwiperSlide >
+          <SwiperSlide>
             <SwipeItem
               swipeDescriptionOne={'Professionals around the world shared how they feel ab'}
               swipeDescriptionTwo={'out technology and I’ve listened. Now it’s your turn.'}
@@ -65,12 +78,27 @@ export default function SwiperComp() {
 
       </div>
 
-      <MyButton
-        isHomeBtn={false}
-        isInverted={false}
-        title={'Continue'}
-        onBtnClick={hitContinue}
-      />
+
+      {
+        activeIndex < 2 && <MyButton
+          isHomeBtn={false}
+          isInverted={false}
+          title={'Continue'}
+          ariaLabel={'click here to view more information'}
+          onBtnClick={hitContinue}
+        />
+
+      }
+
+      {
+       (activeIndex == 2) && <MyButton
+          isHomeBtn={false}
+          isInverted={true}
+          title={'Get Started'}
+          ariaLabel={'Click here to enrol yourself'}
+          onBtnClick={hitContinue}
+        />
+      }
 
 
     </main>

@@ -39,9 +39,9 @@ export default function Result() {
 
         </div>
 
-        <div className={formStyle.formBody}>
+        <div className={formStyle.formBody} autoFocus={true} aria-label='Thanks for registration'>
 
-          <p className={formStyle.labelCtr} role="alert">
+          <p className={formStyle.labelCtr}  role="alert">
             Thanks. {name} Now, it&apos;s time to  get a reality check.
           </p>
 
@@ -57,6 +57,7 @@ export default function Result() {
         isHomeBtn={false}
         isInverted={true}
         title={'Continue'}
+        ariaLabel={'Click here to continue'}
         onBtnClick={() => {
 
           router.replace("/")

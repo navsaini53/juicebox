@@ -7,10 +7,11 @@ interface SwiperProps {
   isHomeBtn: boolean;
   isInverted: boolean;
   title: string,
+  ariaLabel:string,
   onBtnClick: any
 }
 
-const ButtonComp: React.FC<SwiperProps> = ({ isHomeBtn, isInverted, title, onBtnClick }) => {
+const ButtonComp: React.FC<SwiperProps> = ({ isHomeBtn, isInverted, title, onBtnClick,ariaLabel }) => {
 
   let defaultBtnClass = `${styles.defaultBtn}`;
   if (isHomeBtn) defaultBtnClass += ` ${styles.homeBtn}`;
@@ -19,6 +20,7 @@ const ButtonComp: React.FC<SwiperProps> = ({ isHomeBtn, isInverted, title, onBtn
   return (
     <div className={styles.footerCtr}>
       <button className={defaultBtnClass}
+      aria-label={ariaLabel}
         onClick={onBtnClick}
       >
         {title}
