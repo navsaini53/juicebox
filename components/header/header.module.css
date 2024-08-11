@@ -9,7 +9,7 @@
 .backBtn{
     flex:1;
     text-align: start;
-    margin: auto;
+    /* margin: auto; */
     min-width: 50px;
     /* border:1px solid red; */
 
@@ -24,7 +24,7 @@
 	
 	flex-direction: row;
 	
-	align-items: center;
+	/* align-items: center; */
     justify-content: center;
 
 }
@@ -33,7 +33,7 @@
     text-align: end;
     display: flex;
     justify-content: flex-end;
-    margin: auto;
+    /* margin: auto; */
 
 }
 
