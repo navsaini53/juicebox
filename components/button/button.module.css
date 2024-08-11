@@ -8,7 +8,7 @@
     font-family: var(--font-sohne-buch);
   border: 1px solid var(--text-white);
   border-radius: 20px;
-  font-size: 16px;
+  font-size: var(--medium-font-size);
   padding: 24px 0px;
   width: 100%;
   text-align: center;

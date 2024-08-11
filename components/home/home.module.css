@@ -20,7 +20,7 @@ ul.heroUl{
   .heroUl  li:nth-child(even){
    text-align: end;
   }
-  
+
   @media (max-width: 700px) {
 
 

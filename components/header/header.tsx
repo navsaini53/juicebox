@@ -1,5 +1,5 @@
 "use client"; // This is a client component 👈🏽
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -22,55 +22,74 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
   const { contextSafe } = useGSAP({ scope: container.current ?? undefined, });
 
 
+  // const logoDiv=useRef<Document>(document);
 
-  const onMouseOver = contextSafe((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const onMouseEnter = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    // console.log("mouse enter")
 
     startAnimation();
-  });
-
-  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    startAnimation()
   };
-  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+
+  // const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+  //   // console.log("touch start")
+  //   startAnimation()
+  // };
+  // const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+  //   console.log("touch end")
+  //   restoreAnimation()
+  // };
+
+  const onMouseLeave = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  console.log("mouse leave")
     restoreAnimation()
   };
 
-  const onMouseOut = contextSafe((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    restoreAnimation()
-  });
 
 
-  const startAnimation = () => {
+
+ 
+
+  const startAnimation = contextSafe(() => {
     if (container.current) {
 
-      //let t1 = gsap.timeline({});
-      gsap.to(".juiceEaseOut", {
+      let t1 = gsap.timeline({
+        smoothChildTiming: true,
+        autoRemoveChildren: true,
+      });
+
+      t1.to(".juiceEaseOut", {
         x: -200,
         opacity: 0,
-
         duration: 0.1,
-
-
+       
       })
-      gsap.to(".juiceEnd", { x: -60, duration: 0.1 })
+      t1.to(".juiceEnd", { x: -60, duration: 0.1 })
+     
+      
 
     }
-  }
+  })
 
-  const restoreAnimation = () => {
+  const restoreAnimation = contextSafe(() => {
     if (container.current) {
-      gsap.to(".juiceEaseOut", {
+    
+      let t1 = gsap.timeline({ 
+        smoothChildTiming: true,
+        autoRemoveChildren: true,
+      });
+      t1.to(".juiceEaseOut", {
         x: 0,
         opacity: 1,
-
         duration: 0.1,
-
-
       })
-      gsap.to(".juiceEnd", { x: 0, duration: 0.1 })
+      t1.to(".juiceEnd", { x: 0, duration: 0 })
+     
+     
+
+      
 
     }
-  }
+  })
 
 
   return (
@@ -90,7 +109,9 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
             width={20}
             height={20}
             priority={true}
-            objectFit="center"
+            // style={{
+            //   objectFit:'center',
+            // }}
           />
         </button>
 
@@ -102,12 +123,14 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
       <div className={styles.screenTitle}>
 
 
-        <div id='logo'
+        <div id='logoDiv'
+        // ref={logoDiv}
+        className={styles.logoDiv}
         aria-label='Logo Image'
           tabIndex={0}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
+          // onTouchStart={handleTouchStart}
+          // onTouchEnd={handleTouchEnd}
+          onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} style={{border:'1px solid red'}}>
           <svg width="100%" height="30" viewBox="0 0 124 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path className="juiceEaseOut" d="M21.121 17.0265C21.121 18.8099 19.982 19.3612 18.8755 19.3612C17.8016 19.3612 16.5975 18.8099 16.5975 17.0265V8.64966H11.3799V18.129C11.3799 21.3068 13.9507 24.1387 18.8755 24.1387C23.8329 24.1387 26.3386 21.3176 26.3386 18.129V8.64966H21.121V17.0265Z" fill="#FAFAFA" />
             <path className="juiceEaseOut" d="M29.5603 13.0921V23.7495H34.7671V8.64966H29.5603V13.0921Z" fill="#FAFAFA" />
@@ -137,7 +160,7 @@ const Header: React.FC<SwiperProps> = ({ hideBack }) => {
             width={20}
             height={20}
             priority={true}
-            objectFit="center"
+           
 
           />
         </button>

@@ -12,8 +12,9 @@
 
 .labelCtr{
     flex: 1;
+    font-family: var(--font-bagoss-trial);
     text-align: center;
-
+    font-size: var(--medium-font-size);
     margin:20px 0px;
 }
 

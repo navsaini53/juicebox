@@ -1,12 +1,15 @@
 "use client"; // This is a client component 👈🏽
 import {useState} from 'react';
 
-import Lottie from "lottie-react";
+// import Lottie from "lottie-react";
+
 import { useRouter } from 'next/navigation';
 import Header from '../../../../components/header/header';
 import MyButton from '../../../../components/button/button';
+import LottieAnimation from '../../../../components/form/submissionAnimation';
 
-import juicebotJson from "../../../../public/animations/Juicebot.json";
+
+// import juicebotJson from "../../../../public/animations/Juicebot.json";
 import commonStyle from "../../common.module.css";
 import formStyle from "../form.module.css";
 import { useEffect } from 'react';
@@ -26,6 +29,7 @@ export default function Result() {
 
     setName(localStorage.getItem('name'))
     setEmail(localStorage.getItem('email'))
+    
   },[])
 
 
@@ -41,11 +45,12 @@ export default function Result() {
       <div className={commonStyle.swiperSection}>
 
         <div className={formStyle.lottieCtr}>
-          <Lottie animationData={juicebotJson}
+          <LottieAnimation/>
+          {/* <Lottie animationData={juicebotJson}
             style={{
               height: 100
             }}
-            loop={true} />
+            loop={true} /> */}
         </div>
 
 

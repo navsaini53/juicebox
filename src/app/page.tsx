@@ -5,8 +5,9 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { ReactLenis } from 'lenis/react';
+import { ReactLenis,useLenis } from 'lenis/react';
 import HomeAnimatedText from "../../components/home/homeAnimatedText";
+// import LottieAnimation from "../../components/home/lottieAnimation";
 import HeaderComp from "../../components/header/header";
 import LinkButton from "../../components/button/linkButton";
 import styles from "./page.module.css";
@@ -19,6 +20,7 @@ export default function Home() {
 
   // const { contextSafe } = useGSAP({ scope: container.current ?? undefined, });
 
+  const animationContainer = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     gsap.from("#heroText li", { y: 1000, stagger: 1 });
@@ -30,6 +32,20 @@ export default function Home() {
     router.prefetch('/swiper')
   }, [router])
 
+  
+  useEffect(()=>{
+
+    console.log("running")
+  },[])
+
+
+
+  const lenis = useLenis(({ scroll }) => {
+  
+  })
+
+
+  
 
 
   return (
@@ -38,6 +54,8 @@ export default function Home() {
         ref={container}
       >
         <HeaderComp hideBack={true} />
+
+        {/* <LottieAnimation/> */}
 
         <div className={styles.center}>
           <div className={styles.imgContainer}>
@@ -67,6 +85,7 @@ export default function Home() {
           isHomeBtn={true}
           title={'Get a reality check'}
         />
+
       </main>
     </ReactLenis>
   );
