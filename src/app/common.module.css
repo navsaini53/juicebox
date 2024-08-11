@@ -27,15 +27,19 @@
 
 
 .formCtr {
-  /* width: 100%; */
-  display: flex;
-  flex-direction: row;
+  width: 100%;
+ 
   height:var(--footer-height);
-  align-items: center;
-  position: fixed;
-  bottom: 0px;
-  right:20px;
-  left:20px;
+  align-items: flex-end;
+ 
+  display: flex;
+   align-items: flex-end;
+
+   /* width: 100%;
+   height: var(--footer-height);
+   display: flex;
+   align-items: flex-end;
+   border: 1px solid red; */
 }
 
 .inputCtr {

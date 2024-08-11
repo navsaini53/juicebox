@@ -10,7 +10,6 @@
     height: 60px;
     padding: 0px 12px 0px 12px;
     gap: 0px;
-    border-radius: 18px;
     justify-content: space-between;
     /* opacity: 0px; */
     border:1px solid white;
@@ -19,6 +18,9 @@
     background: var(--background-color);
     color: var(--text-gray-color);
     font-size: 16px;
+
+   border-right: 0px;
+    border-radius: 18px 0px 0px 18px;
   
   }
   .errorInput{
@@ -49,17 +51,31 @@
 }
 
 .btnCtr {
-  position: fixed;
- 
-   bottom: 33px;
-   right:30px;
+  /* position: absolute;
+  bottom: 30px;
+  right: 30px; */
   width: 36px;
   height: 36px;
   text-align: center;
   background-color: var(--text-gray-color);
   border-radius: 50%;
-  display: flex;
   padding: 10px;
   border: none;
   cursor: pointer;
+
+
+
+  
+}
+
+
+.submitCtr{
+  height: 60px;
+  border: 1px solid;
+  border-radius: 0px 18px 18px 0px;
+  padding: 10px;
+  border: 1px solid var(--text-gray-color);
+  border-left: none;
+  background: var(--background-color);
+
 }

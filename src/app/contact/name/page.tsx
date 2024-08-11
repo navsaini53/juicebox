@@ -80,8 +80,8 @@ export default function UserForm() {
           
           <div className={commonStyle.formCtr}>
 
-
-          <FormInput
+           
+           <FormInput
              
              autoFocus={true}
               id={'name'}
@@ -91,15 +91,17 @@ export default function UserForm() {
               role="textbox"   
               aria-required="true"
               aria-label="Enter Your Name"
-            
-               aria-invalid={errors.name ? 'true' : 'false'}
+              aria-invalid={errors.name ? 'true' : 'false'}
 
-              // aria-describedby="name-error"
+               aria-describedby="name-error"
       
               />
              
           
             <FormButton/>
+          
+
+         
 
            
 

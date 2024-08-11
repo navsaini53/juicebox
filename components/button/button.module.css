@@ -36,7 +36,8 @@
     width: 100%;
     height: var(--footer-height);
     display: flex;
-    align-items: end;
+    align-items: flex-end;
+    border: 1px solid red;
     
   }
   

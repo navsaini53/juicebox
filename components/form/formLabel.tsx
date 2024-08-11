@@ -11,15 +11,14 @@ interface FormProps {
 }
 
 const FormLabel: React.FC<FormProps> = ({labelText,labelFor,errorId,errors}) => {
-// console.log({labelText,labelFor,errorId,errors})
+  
   return (<>
     <label htmlFor={labelFor} className={styles.headingCtr}>
       {labelText}
       </label>
         {errors && (
               <p className={styles.errorMsg}
-              // aria-label={errors.message}
-            
+               aria-label={errors.message}
               id={errorId} role="alert">
                 {errors.message}
               </p>

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import styles from "./form.module.css";
 
 const FormButton: React.FC<{}> = () => {
-  return (<button 
+  return (<div className={styles.submitCtr}><button 
   type='submit'
          className={styles.btnCtr} >
               <Image
@@ -15,7 +15,7 @@ const FormButton: React.FC<{}> = () => {
                 height={16}
                 priority={false}
               />
-            </button>
+            </button></div>
   );
 
 
